@@ -24,6 +24,18 @@ import {
   TrainFront,
   Check,
   Menu,
+  Sparkles,
+  AlertCircle,
+  Calendar,
+  Download,
+  Users,
+  ShieldCheck,
+  Phone,
+  Mail,
+  Instagram,
+  Facebook,
+  Linkedin,
+  Youtube,
 } from "lucide-react";
 import tower from "@/assets/plinth-tower.jpg";
 import office from "@/assets/plinth-office.jpg";
@@ -575,31 +587,300 @@ function Location() {
   );
 }
 
-/* ---------- 9. CONTACT / FOOTER ---------- */
+/* ---------- 8. DEVELOPER LEGACY ---------- */
 
-function Contact() {
+function DeveloperLegacy() {
+  const stats = [
+    { icon: Building2, v: "24+", label: "Delivered Projects", serif: true },
+    { icon: Award, v: "22", label: "Years of Experience", serif: true },
+    { icon: Users, v: "8,500+", label: "Happy Clients", serif: true },
+    { icon: ShieldCheck, v: "New Launch", label: "Certified & Approved", serif: true },
+  ];
+  const press = ["ET Realty", "Forbes India", "Business Standard", "Mint", "Ahmedabad Mirror"];
+  return (
+    <section className="py-28 lg:py-36">
+      <div className="mx-auto max-w-[1400px] px-6 lg:px-12">
+        <div className="text-center mb-14">
+          <div className="text-xs tracking-[0.3em] text-[var(--gold)] mb-6">08 / DEVELOPER LEGACY</div>
+          <h2 className="font-serif text-5xl md:text-6xl lg:text-7xl leading-tight text-foreground">
+            Built on two decades of <span className={`italic ${goldText}`}>trust.</span>
+          </h2>
+          <p className="mt-8 max-w-2xl mx-auto text-foreground/70 leading-relaxed text-lg">
+            A track record of landmark commercial projects delivered on time, every time — across
+            Ahmedabad's most prestigious corridors.
+          </p>
+        </div>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {stats.map(({ icon: Icon, v, label }) => (
+            <div
+              key={label}
+              className="rounded-2xl border border-[var(--gold-soft)]/30 bg-card/40 p-8 text-center min-h-[240px] flex flex-col items-center justify-center"
+            >
+              <div className="h-14 w-14 rounded-full bg-[var(--gradient-gold)] flex items-center justify-center mb-8 shadow-lg shadow-[var(--gold)]/30">
+                <Icon className="h-5 w-5 text-background" />
+              </div>
+              <div className={`font-serif text-5xl ${goldText} mb-3`}>{v}</div>
+              <div className="text-sm text-foreground/70">{label}</div>
+            </div>
+          ))}
+        </div>
+
+        {/* Featured in strip */}
+        <div className="mt-10 rounded-full border border-[var(--gold-soft)]/30 bg-card/30 px-8 py-5 flex flex-wrap items-center justify-between gap-6">
+          <div className="text-[10px] tracking-[0.3em] text-[var(--gold)]">FEATURED IN</div>
+          <div className="flex flex-wrap items-center gap-x-10 gap-y-3">
+            {press.map((p) => (
+              <span key={p} className="font-serif text-lg text-foreground/80">{p}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------- INVESTMENT OPPORTUNITY CTA (big ROI) ---------- */
+
+function InvestmentCTA() {
+  return (
+    <section className="py-28 lg:py-36 relative overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,oklch(0.78_0.13_75/0.08),transparent_60%)]" />
+      <div className="relative mx-auto max-w-[1400px] px-6 lg:px-12 text-center">
+        <div className="inline-flex items-center gap-3 rounded-full border border-[var(--gold-soft)]/40 px-6 py-3 mb-12">
+          <span className="h-2 w-2 rounded-full bg-[var(--gold)] animate-pulse" />
+          <span className="text-xs tracking-[0.3em] text-foreground/80">INVESTMENT OPPORTUNITY</span>
+        </div>
+
+        <div className="text-xs tracking-[0.3em] text-[var(--gold)] mb-10">EXPECTED ANNUAL ROI</div>
+
+        <div className={`font-serif leading-none ${goldText} text-[8rem] md:text-[12rem] lg:text-[16rem]`}>
+          15–18<span className="text-[6rem] md:text-[9rem] lg:text-[11rem]">%</span>
+        </div>
+
+        <h3 className="font-serif text-3xl md:text-4xl lg:text-5xl text-foreground mt-8">
+          A landmark address. <span className={`italic ${goldText}`}>A landmark return.</span>
+        </h3>
+
+        <div className="mt-14 flex flex-wrap items-center justify-center gap-4">
+          <button className="rounded-full px-8 py-4 bg-[var(--gradient-gold)] text-background font-medium flex items-center gap-3 hover:opacity-90 transition shadow-xl shadow-[var(--gold)]/30">
+            <Calendar className="h-4 w-4" /> Book Site Visit
+          </button>
+          <button className="rounded-full px-8 py-4 border border-[var(--gold-soft)]/50 text-foreground font-medium flex items-center gap-3 hover:border-[var(--gold)] transition">
+            <Download className="h-4 w-4 text-[var(--gold)]" /> Download Brochure <ArrowRight className="h-4 w-4" />
+          </button>
+        </div>
+
+        <div className="mt-20 text-xs tracking-[0.4em] text-foreground/70">
+          SINDHU BHAVAN ROAD <span className="text-[var(--gold)]">·</span> AHMEDABAD <span className="text-[var(--gold)]">·</span> 380054
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------- 9. ENQUIRE NOW ---------- */
+
+function EnquireNow() {
   return (
     <section id="contact" className="py-28 lg:py-36">
-      <div className="mx-auto max-w-4xl px-6 lg:px-12 text-center">
-        <SectionLabel n="08" t="CONTACT" />
-        <h2 className="font-serif text-5xl md:text-6xl lg:text-7xl leading-tight text-foreground">
-          Reserve your <span className={`italic ${goldText}`}>landmark</span> address.
-        </h2>
-        <p className="mt-8 text-foreground/70 leading-relaxed text-lg max-w-2xl mx-auto">
-          Limited units remain in the launch phase. Speak with our investment advisors for floor plans, pricing, and private viewings.
-        </p>
-        <button className="mt-10 rounded-full px-10 py-5 bg-[var(--gradient-gold)] text-background font-medium hover:opacity-90 transition shadow-xl shadow-[var(--gold)]/20">
-          Enquire Now
-        </button>
-      </div>
+      <div className="mx-auto max-w-[1400px] px-6 lg:px-12">
+        <SectionLabel n="09" t="ENQUIRE NOW" />
 
-      <footer className="mt-28 border-t border-[var(--gold-soft)]/20 pt-10">
-        <div className="mx-auto max-w-[1400px] px-6 lg:px-12 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-foreground/50">
-          <span>© {new Date().getFullYear()} Plinth · Sindhu Bhavan Road, Ahmedabad</span>
-          <span>Privacy · Terms · RERA</span>
+        <div className="grid lg:grid-cols-2 gap-14 lg:gap-20">
+          {/* LEFT */}
+          <div>
+            <h2 className="font-serif text-5xl md:text-6xl lg:text-7xl leading-[1.05] text-foreground">
+              Get <span className={`italic ${goldText}`}>Complete</span>
+              <br />
+              Investment Details.
+            </h2>
+            <p className="mt-8 text-foreground/70 leading-relaxed text-lg max-w-xl">
+              Priority access to pricing, RERA documentation, floor plans,
+              rental projections &amp; exclusive pre-launch offers.
+            </p>
+
+            <div className="mt-12 rounded-2xl border border-[var(--gold-soft)]/40 bg-card/50 p-6 flex items-start gap-5">
+              <div className="h-12 w-12 rounded-full bg-[var(--gradient-gold)] flex items-center justify-center shrink-0">
+                <AlertCircle className="h-5 w-5 text-background" />
+              </div>
+              <div>
+                <h3 className="font-serif text-2xl text-foreground">Limited Premium Units Available</h3>
+                <p className="text-sm text-foreground/65 mt-2">
+                  Only a handful of high-floor units remain in this phase.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-6 rounded-2xl border border-[var(--gold-soft)]/40 bg-card/50 p-8">
+              <div className="text-[10px] tracking-[0.3em] text-[var(--gold)] mb-4">WHY INVEST NOW</div>
+              <div className={`font-serif text-6xl ${goldText}`}>15–18%</div>
+              <p className="text-sm text-foreground/65 mt-4">
+                Expected annual ROI — rental yield + capital appreciation.
+              </p>
+            </div>
+          </div>
+
+          {/* RIGHT - Form */}
+          <form
+            onSubmit={(e) => e.preventDefault()}
+            className="rounded-3xl border border-[var(--gold-soft)]/40 bg-card/60 p-8 lg:p-10"
+          >
+            <div className="flex items-center gap-3 mb-3">
+              <Sparkles className="h-4 w-4 text-[var(--gold)]" />
+              <span className="text-xs tracking-[0.3em] text-[var(--gold)]">PRIORITY ENQUIRY</span>
+            </div>
+            <h3 className="font-serif text-3xl md:text-4xl text-foreground mb-10">
+              Schedule a private consultation.
+            </h3>
+
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <label className="text-[10px] tracking-[0.3em] text-foreground/70">FULL NAME</label>
+                <input
+                  type="text"
+                  placeholder="Your name"
+                  className="mt-3 w-full rounded-xl border border-[var(--gold-soft)]/30 bg-background/40 px-5 py-4 text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-[var(--gold)] transition"
+                />
+              </div>
+              <div>
+                <label className="text-[10px] tracking-[0.3em] text-foreground/70">PHONE NUMBER</label>
+                <input
+                  type="tel"
+                  placeholder="+91 ——————"
+                  className="mt-3 w-full rounded-xl border border-[var(--gold-soft)]/30 bg-background/40 px-5 py-4 text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-[var(--gold)] transition"
+                />
+              </div>
+              <div>
+                <label className="text-[10px] tracking-[0.3em] text-foreground/70">BUDGET RANGE</label>
+                <select className="mt-3 w-full rounded-xl border border-[var(--gold-soft)]/30 bg-background/40 px-5 py-4 text-foreground focus:outline-none focus:border-[var(--gold)] transition">
+                  <option>₹65 L – ₹1 Cr</option>
+                  <option>₹1 Cr – ₹2 Cr</option>
+                  <option>₹2 Cr +</option>
+                </select>
+              </div>
+              <div>
+                <label className="text-[10px] tracking-[0.3em] text-foreground/70">PURPOSE</label>
+                <div className="mt-3 grid grid-cols-2 gap-3">
+                  <button
+                    type="button"
+                    className="rounded-xl border border-[var(--gold)] bg-[var(--gold)]/10 py-4 text-foreground font-medium"
+                  >
+                    Investor
+                  </button>
+                  <button
+                    type="button"
+                    className="rounded-xl border border-[var(--gold-soft)]/30 bg-background/40 py-4 text-foreground/80 hover:border-[var(--gold)]/60 transition"
+                  >
+                    End User
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-10 pt-8 border-t border-[var(--gold-soft)]/20">
+              <p className="text-xs text-foreground/60 mb-6">
+                By submitting, you agree to receive project details via phone, WhatsApp &amp; email.
+              </p>
+              <button
+                type="submit"
+                className="w-full rounded-full py-5 bg-[var(--gradient-gold)] text-background font-medium flex items-center justify-center gap-3 hover:opacity-90 transition shadow-xl shadow-[var(--gold)]/30"
+              >
+                Get Complete Investment Details <ArrowRight className="h-4 w-4" />
+              </button>
+            </div>
+          </form>
         </div>
-      </footer>
+      </div>
     </section>
+  );
+}
+
+/* ---------- FOOTER ---------- */
+
+function SiteFooter() {
+  const navLinks = ["ROI & Returns", "Project Highlights", "Space Options", "Amenities", "Location", "Contact"];
+  const socials = [Instagram, Facebook, Linkedin, Youtube];
+  return (
+    <footer className="border-t border-[var(--gold-soft)]/20 pt-20 pb-10">
+      <div className="mx-auto max-w-[1400px] px-6 lg:px-12">
+        <div className="grid lg:grid-cols-3 gap-14">
+          {/* About */}
+          <div>
+            <div className="h-12 w-12 rounded-full bg-[var(--gradient-gold)] mb-8 shadow-lg shadow-[var(--gold)]/30" />
+            <p className="text-sm text-foreground/70 leading-relaxed">
+              Looking for{" "}
+              <span className="text-[var(--gold)]">office space in Sindhu Bhavan Ahmedabad</span>?
+              This premium commercial project offers modern office spaces and showroom units with{" "}
+              <span className="text-[var(--gold)]">high ROI potential (15–18% annual returns)</span>,
+              G+38 storey landmark design, green building certification, 18 high-speed lifts, and
+              4-level basement parking in Ahmedabad's most prestigious business corridor.
+            </p>
+            <div className="mt-8 flex items-center gap-3">
+              {socials.map((Icon, i) => (
+                <a
+                  key={i}
+                  href="#"
+                  className="h-10 w-10 rounded-full border border-[var(--gold-soft)]/50 flex items-center justify-center hover:bg-[var(--gold)]/10 hover:border-[var(--gold)] transition"
+                  aria-label="Social link"
+                >
+                  <Icon className="h-4 w-4 text-[var(--gold)]" />
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Navigate */}
+          <div>
+            <div className="text-[10px] tracking-[0.3em] text-[var(--gold)] mb-8">NAVIGATE</div>
+            <ul className="space-y-5">
+              {navLinks.map((l) => (
+                <li key={l}>
+                  <a href="#" className="text-foreground hover:text-[var(--gold)] transition">{l}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <div className="text-[10px] tracking-[0.3em] text-[var(--gold)] mb-8">CONTACT</div>
+            <ul className="space-y-5 text-foreground">
+              <li className="flex items-start gap-4">
+                <MapPin className="h-4 w-4 text-[var(--gold)] mt-1 shrink-0" />
+                <span>Sindhu Bhavan Road, Bodakdev, Ahmedabad, Gujarat 380054</span>
+              </li>
+              <li className="flex items-center gap-4">
+                <Phone className="h-4 w-4 text-[var(--gold)]" />
+                <span>+91 9898709370</span>
+              </li>
+              <li className="flex items-center gap-4">
+                <Mail className="h-4 w-4 text-[var(--gold)]" />
+                <span>info@plinthreality.com</span>
+              </li>
+            </ul>
+
+            <div className="mt-8 rounded-2xl border border-[var(--gold-soft)]/40 bg-card/50 p-6">
+              <div className="text-[10px] tracking-[0.3em] text-[var(--gold)] mb-3">EXPECTED ROI</div>
+              <div className={`font-serif text-4xl ${goldText}`}>15–18% p.a.</div>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-16 pt-8 border-t border-[var(--gold-soft)]/20 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-xs text-foreground/50">
+          <span>© {new Date().getFullYear()} Sindhu Bhavan. All rights reserved.</span>
+          <div className="flex flex-wrap gap-x-8 gap-y-2">
+            <a href="#" className="hover:text-[var(--gold)]">Privacy Policy</a>
+            <a href="#" className="hover:text-[var(--gold)]">Terms</a>
+            <a href="#" className="hover:text-[var(--gold)]">Pre-Launch Project</a>
+            <a href="#" className="hover:text-[var(--gold)]">Disclaimer</a>
+          </div>
+        </div>
+        <p className="mt-6 text-[11px] text-foreground/40 leading-relaxed">
+          Disclaimer: Images are artistic impressions. ROI projections are based on current market analysis and may vary. Past performance is not indicative of future results.
+        </p>
+      </div>
+    </footer>
   );
 }
 
@@ -616,7 +897,10 @@ function PlinthLanding() {
       <WhyInvest />
       <Amenities />
       <Location />
-      <Contact />
+      <DeveloperLegacy />
+      <InvestmentCTA />
+      <EnquireNow />
+      <SiteFooter />
     </main>
   );
 }
