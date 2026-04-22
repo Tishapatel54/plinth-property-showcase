@@ -4,6 +4,7 @@ import {
   TrendingUp,
   Building2,
   Store,
+  Phone as PhoneIcon,
   Leaf,
   ArrowUp,
   Layers,
@@ -71,8 +72,8 @@ const goldText = "bg-[var(--gradient-gold)] bg-clip-text text-transparent";
 function Nav() {
   return (
     <header className="absolute top-0 inset-x-0 z-30">
-      <div className="mx-auto max-w-[1400px] px-6 lg:px-12 py-6 flex items-center justify-between">
-        <nav className="hidden md:flex items-center gap-10 text-sm font-light text-foreground/90">
+      <div className="mx-auto max-w-[1400px] px-6 lg:px-12 py-7 flex items-center justify-between">
+        <nav className="hidden md:flex items-center gap-9 text-[15px] font-light text-foreground/90">
           {["Home", "ROI", "Highlights", "Spaces", "Amenities", "Location", "Contact"].map((l) => (
             <a key={l} href={`#${l.toLowerCase()}`} className="hover:text-[var(--gold)] transition">
               {l}
@@ -82,7 +83,7 @@ function Nav() {
         <button className="md:hidden text-foreground" aria-label="Menu">
           <Menu className="h-6 w-6" />
         </button>
-        <button className="rounded-full px-7 py-3 text-sm font-medium text-background bg-[var(--gradient-gold)] hover:opacity-90 transition shadow-lg shadow-[var(--gold)]/20">
+        <button className="rounded-full px-8 py-3 text-sm font-medium text-background bg-[var(--gradient-gold)] hover:opacity-90 transition shadow-[0_0_40px_-8px_oklch(0.78_0.13_75/0.55)]">
           Enquire Now
         </button>
       </div>
@@ -94,38 +95,57 @@ function Nav() {
 
 function Hero() {
   return (
-    <section id="home" className="relative min-h-screen overflow-hidden pt-32 pb-20">
-      {/* subtle radial glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,oklch(0.78_0.13_75/0.08),transparent_60%)]" />
+    <section id="home" className="relative overflow-hidden pt-28 pb-16">
+      {/* radial gold glows like screenshot */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_30%_55%,oklch(0.78_0.13_75/0.10),transparent_70%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_40%_40%_at_85%_10%,oklch(0.78_0.13_75/0.08),transparent_70%)]" />
+      {/* decorative concentric arcs top-right */}
+      <svg className="absolute -top-40 -right-40 w-[700px] h-[700px] opacity-[0.18] pointer-events-none" viewBox="0 0 700 700" fill="none">
+        {[180, 240, 300, 360, 420, 480, 540].map((r) => (
+          <circle key={r} cx="500" cy="200" r={r} stroke="oklch(0.78 0.13 75)" strokeWidth="0.6" />
+        ))}
+      </svg>
 
-      <div className="relative mx-auto max-w-[1400px] px-6 lg:px-12 grid lg:grid-cols-2 gap-12 items-center">
+      <div className="relative mx-auto max-w-[1400px] px-6 lg:px-12 grid lg:grid-cols-2 gap-12 items-start">
         {/* LEFT */}
-        <div>
-          <div className="inline-flex items-center gap-3 rounded-full border border-[var(--gold-soft)]/40 px-6 py-3 mb-10">
+        <div className="pt-4">
+          <div className="inline-flex items-center gap-3 rounded-full border border-[var(--gold-soft)]/40 px-6 py-3 mb-12">
             <span className="h-2 w-2 rounded-full bg-[var(--gold)] animate-pulse" />
-            <span className="text-xs tracking-[0.25em] text-foreground/80">NOW LAUNCHING</span>
+            <span className="text-[11px] tracking-[0.25em] text-foreground/80">NOW LAUNCHING</span>
             <span className="text-foreground/40">·</span>
-            <span className="text-xs tracking-[0.25em] font-medium text-foreground">SINDHU BHAVAN ROAD</span>
+            <span className="text-[11px] tracking-[0.28em] font-medium text-foreground">SINDHU BHAVAN ROAD</span>
           </div>
 
-          <p className="font-serif italic text-2xl text-foreground/70 mb-2">Looking For</p>
-          <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl leading-[1.05] text-foreground">
+          <p className="font-serif italic text-2xl text-foreground/85 mb-3">Looking For</p>
+          <h1 className="font-serif text-5xl md:text-6xl lg:text-[5.5rem] leading-[1.02] text-foreground tracking-tight">
             Premium Commercial
             <br />
             <span className="italic">Space?</span>
           </h1>
 
-          <div className="mt-12">
-            <div className="flex items-center gap-4 mb-3">
-              <span className="h-px w-12 bg-[var(--gold-soft)]" />
-              <span className="text-xs tracking-[0.3em] text-[var(--gold)]">EXPECTED ANNUAL ROI</span>
+          <div className="mt-10">
+            <div className="flex items-center gap-4 mb-2">
+              <span className="h-px w-10 bg-[var(--gold-soft)]" />
+              <span className="text-[11px] tracking-[0.3em] text-[var(--gold)]">EXPECTED ANNUAL ROI</span>
             </div>
-            <div className={`font-serif text-7xl md:text-8xl lg:text-[8rem] leading-none ${goldText}`}>
+            <div className={`font-serif text-7xl md:text-8xl lg:text-[8.5rem] leading-none ${goldText}`}>
               15–18<span className="text-6xl md:text-7xl">%</span>
             </div>
             <p className="mt-6 max-w-md text-foreground/70 leading-relaxed">
-              A high-growth commercial investment opportunity in Ahmedabad's most promising business corridor.
+              A high-growth commercial investment opportunity in Ahmedabad's most prestigious business corridor.
             </p>
+
+            {/* CTA buttons */}
+            <div className="mt-10 flex flex-wrap items-center gap-4">
+              <button className="inline-flex items-center gap-3 rounded-full px-8 py-4 text-sm font-medium text-background bg-[var(--gradient-gold)] hover:opacity-90 transition shadow-[0_0_50px_-8px_oklch(0.78_0.13_75/0.6)]">
+                Get Pricing &amp; ROI Details
+                <ArrowRight className="h-4 w-4" />
+              </button>
+              <button className="inline-flex items-center gap-3 rounded-full px-7 py-4 text-sm font-medium text-foreground border border-[var(--gold-soft)]/40 hover:border-[var(--gold)] hover:bg-[var(--gold)]/5 transition">
+                <PhoneIcon className="h-4 w-4 text-[var(--gold)]" />
+                Talk to Advisor
+              </button>
+            </div>
           </div>
         </div>
 
@@ -163,17 +183,20 @@ function Hero() {
         </div>
       </div>
 
-      {/* stat strip */}
-      <div className="relative mx-auto max-w-[1400px] px-6 lg:px-12 mt-20 grid grid-cols-1 md:grid-cols-3 gap-5">
+      {/* stat strip - left aligned under CTAs like screenshot */}
+      <div className="relative mx-auto max-w-[1400px] px-6 lg:px-12 mt-14 grid grid-cols-1 sm:grid-cols-3 gap-5 lg:max-w-[700px] lg:mx-[max(1.5rem,calc((100%-1400px)/2+3rem))]">
         {[
           { icon: TrendingUp, label: "STARTING", v: "₹65 Lakhs" },
           { icon: Building2, label: "OFFICE FROM", v: "900 Sq.ft" },
           { icon: Store, label: "SHOWROOM FROM", v: "2700 Sq.ft" },
         ].map(({ icon: Icon, label, v }) => (
-          <div key={label} className="rounded-xl border border-[var(--gold-soft)]/30 bg-card/40 p-6">
-            <Icon className="h-5 w-5 text-[var(--gold)] mb-4" />
-            <div className="text-[10px] tracking-[0.3em] text-foreground/60 mb-2">{label}</div>
-            <div className="font-serif text-2xl text-foreground">{v}</div>
+          <div
+            key={label}
+            className="rounded-2xl border border-[var(--gold-soft)]/25 bg-gradient-to-br from-card/70 to-card/30 backdrop-blur p-5"
+          >
+            <Icon className="h-4 w-4 text-[var(--gold)] mb-3" />
+            <div className="text-[10px] tracking-[0.3em] text-foreground/55 mb-2">{label}</div>
+            <div className="font-serif text-xl text-foreground">{v}</div>
           </div>
         ))}
       </div>
