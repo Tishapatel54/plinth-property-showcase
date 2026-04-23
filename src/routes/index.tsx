@@ -1,3 +1,4 @@
+import * as React from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import {
   ArrowRight,
@@ -444,22 +445,79 @@ function WhyInvest() {
     { icon: Building2, t: "Future Landmark Development", d: "Be part of an iconic structure that will redefine the skyline and set new standards for luxury commercial spaces." },
     { icon: Key, t: "Limited Entry Opportunity", d: "Exclusive availability with a limited number of units remaining in this premium phase. Rarity dictates value." },
   ];
+
+  const fullText = "Why Invest Now?";
+  const sectionRef = React.useRef<HTMLElement | null>(null);
+  const [typed, setTyped] = React.useState("");
+  const [started, setStarted] = React.useState(false);
+  const [cardsVisible, setCardsVisible] = React.useState(false);
+
+  React.useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            setStarted(true);
+            obs.disconnect();
+          }
+        });
+      },
+      { threshold: 0.25 },
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  React.useEffect(() => {
+    if (!started) return;
+    let i = 0;
+    const id = setInterval(() => {
+      i += 1;
+      setTyped(fullText.slice(0, i));
+      if (i >= fullText.length) {
+        clearInterval(id);
+        setTimeout(() => setCardsVisible(true), 250);
+      }
+    }, 90);
+    return () => clearInterval(id);
+  }, [started]);
+
+  const splitIdx = "Why Invest ".length;
+  const firstPart = typed.slice(0, Math.min(typed.length, splitIdx));
+  const secondPart = typed.length > splitIdx ? typed.slice(splitIdx) : "";
+  const doneTyping = typed.length >= fullText.length;
+
   return (
-    <section id="amenities" className="py-28 lg:py-36">
+    <section ref={sectionRef} id="amenities" className="py-28 lg:py-36">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-12">
         <SectionLabel n="05" t="EXCLUSIVE OPPORTUNITY" />
         <h2 className="font-serif text-6xl md:text-7xl lg:text-8xl leading-tight text-foreground mb-10">
-          Why Invest <span className={`italic ${goldText}`}>Now?</span>
+          <span>{firstPart}</span>
+          <span className={`italic ${goldText}`}>{secondPart}</span>
+          <span
+            aria-hidden
+            className="inline-block w-[3px] md:w-[5px] h-[0.85em] align-[-0.08em] ml-2 bg-[var(--gold)]"
+            style={{
+              animation: doneTyping ? "plinth-blink 1s steps(2) infinite" : "none",
+              opacity: doneTyping ? undefined : 1,
+            }}
+          />
         </h2>
+        <style>{`@keyframes plinth-blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }`}</style>
         <p className="max-w-3xl text-foreground/70 text-lg leading-relaxed mb-16">
           The convergence of strategic location, architectural brilliance, and optimal market timing creates an unprecedented window for discerning investors.
         </p>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {items.map(({ icon: Icon, t, d, featured }) => (
+          {items.map(({ icon: Icon, t, d, featured }, idx) => (
             <div
               key={t}
-              className={`rounded-2xl p-8 min-h-[420px] flex flex-col ${
+              style={{ transitionDelay: `${idx * 150}ms` }}
+              className={`rounded-2xl p-8 min-h-[420px] flex flex-col transform transition-all duration-700 ease-out ${
+                cardsVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+              } ${
                 featured
                   ? "bg-[var(--gradient-gold)] text-background"
                   : "border border-[var(--gold-soft)]/30 bg-card/50 text-foreground"
