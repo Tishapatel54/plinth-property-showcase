@@ -244,23 +244,58 @@ function ROISection() {
                     <stop offset="0%" stopColor="oklch(0.78 0.13 75)" stopOpacity="0.4" />
                     <stop offset="100%" stopColor="oklch(0.78 0.13 75)" stopOpacity="0" />
                   </linearGradient>
+                  <linearGradient id="curveStroke" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stopColor="oklch(0.65 0.13 65)" />
+                    <stop offset="100%" stopColor="oklch(0.88 0.14 80)" />
+                  </linearGradient>
+                  <filter id="curveGlow" x="-20%" y="-20%" width="140%" height="140%">
+                    <feGaussianBlur stdDeviation="3" result="b" />
+                    <feMerge>
+                      <feMergeNode in="b" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+                  <clipPath id="curveReveal">
+                    <rect x="0" y="0" height="220" width="0">
+                      <animate attributeName="width" from="0" to="600" dur="3.2s" repeatCount="indefinite" />
+                    </rect>
+                  </clipPath>
                 </defs>
+
+                {/* Grid */}
                 {[40, 80, 120, 160, 200].map((y) => (
                   <line key={y} x1="0" y1={y} x2="600" y2={y} stroke="oklch(0.4 0.02 70)" strokeDasharray="3 6" strokeWidth="0.5" />
                 ))}
-                <path
-                  d="M 20 190 L 90 165 L 160 140 L 230 120 L 300 100 L 370 80 L 440 65 L 510 50 L 580 35 L 580 220 L 20 220 Z"
-                  fill="url(#curveFill)"
-                />
-                <path
-                  d="M 20 190 L 90 165 L 160 140 L 230 120 L 300 100 L 370 80 L 440 65 L 510 50 L 580 35"
-                  stroke="oklch(0.78 0.13 75)"
-                  strokeWidth="2"
-                  fill="none"
-                />
-                {[[20, 190], [90, 165], [160, 140], [230, 120], [300, 100], [370, 80], [440, 65], [510, 50], [580, 35]].map(([x, y], i) => (
-                  <circle key={i} cx={x} cy={y} r="4" fill="oklch(0.78 0.13 75)" />
-                ))}
+
+                {/* Animated reveal group */}
+                <g clipPath="url(#curveReveal)">
+                  <path
+                    d="M 20 190 L 90 165 L 160 140 L 230 120 L 300 100 L 370 80 L 440 65 L 510 50 L 580 35 L 580 220 L 20 220 Z"
+                    fill="url(#curveFill)"
+                  />
+                  <path
+                    d="M 20 190 L 90 165 L 160 140 L 230 120 L 300 100 L 370 80 L 440 65 L 510 50 L 580 35"
+                    stroke="url(#curveStroke)"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    fill="none"
+                    filter="url(#curveGlow)"
+                  />
+                  {[[20, 190], [90, 165], [160, 140], [230, 120], [300, 100], [370, 80], [440, 65], [510, 50], [580, 35]].map(([x, y], i) => (
+                    <circle key={i} cx={x} cy={y} r="4" fill="oklch(0.78 0.13 75)" />
+                  ))}
+                </g>
+
+                {/* Traveling pulse along the curve */}
+                <circle r="6" fill="oklch(0.95 0.12 85)" filter="url(#curveGlow)" opacity="0.95">
+                  <animateMotion
+                    dur="3.2s"
+                    repeatCount="indefinite"
+                    path="M 20 190 L 90 165 L 160 140 L 230 120 L 300 100 L 370 80 L 440 65 L 510 50 L 580 35"
+                  />
+                  <animate attributeName="r" values="3;7;3" dur="1.2s" repeatCount="indefinite" />
+                </circle>
               </svg>
             </div>
             <div className="grid grid-cols-9 text-[10px] tracking-widest text-foreground/50 mt-3">
