@@ -52,9 +52,9 @@ export const Route = createFileRoute("/")({
   component: PlinthLanding,
   head: () => ({
     meta: [
-      { title: "Plinth — Premium Commercial Space, Sindhu Bhavan Road" },
+      { title: "Plinth - Premium Commercial Space, Sindhu Bhavan Road" },
       { name: "description", content: "Plinth on Sindhu Bhavan Road, Ahmedabad. G+38 storey landmark commercial tower with 15–18% expected annual ROI. Office and showroom spaces from 900 to 2700 sq.ft." },
-      { property: "og:title", content: "Plinth — Premium Commercial Space" },
+      { property: "og:title", content: "Plinth - Premium Commercial Space" },
       { property: "og:description", content: "G+38 landmark commercial tower on Sindhu Bhavan Road, Ahmedabad. 15–18% expected ROI." },
     ],
   }),
@@ -332,6 +332,7 @@ function Hero() {
                 100% { transform: translateX(0%); }
               }
             `}} />
+            
             <div className="absolute inset-0 rounded-[32px] overflow-hidden">
               <div className="absolute inset-0 w-[300%] flex h-full" style={{ animation: "hero-slide 18s cubic-bezier(0.8,0,0.2,1) infinite" }}>
                 {[tower, plinthOffice, plinthShowroom].map((src, i) => (
@@ -340,6 +341,7 @@ function Hero() {
                       src={src}
                       alt={`Plinth feature ${i + 1}`}
                       className="absolute inset-0 h-full w-full object-cover"
+                      
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-black/40" />
                   </div>
@@ -509,7 +511,7 @@ function Highlights() {
   const items = [
     { icon: Building, t: "G + 38 Storey", d: "Landmark tower defining the skyline of Sindhu Bhavan Road." },
     { icon: Leaf, t: "Green Building", d: "IGBC certified, energy-efficient and sustainably engineered." },
-    { icon: ArrowUp, t: "18 Lifts", d: "High-speed vertical transport — no wait times, zero downtime." },
+    { icon: ArrowUp, t: "18 Lifts", d: "High-speed vertical transport - no wait times, zero downtime." },
     { icon: Layers, t: "18 Offices / Floor", d: "Thoughtfully planned floor plates for productivity & flow." },
     { icon: MoveVertical, t: "11.5 ft Ceilings", d: "Double-volume interiors for a grand, open workspace." },
     { icon: Car, t: "−4 Basement Parking", d: "Ample secured parking across four basement levels." },
@@ -527,7 +529,7 @@ function Highlights() {
             </span>
           </h2>
           <p className="text-foreground/70 text-lg leading-relaxed lg:mt-8">
-            Every number has been carefully considered — floor plates, ceiling heights, basements, elevators.
+            Every number has been carefully considered - floor plates, ceiling heights, basements, elevators.
             Premium scale that tenants and investors recognize instantly.
           </p>
         </div>
@@ -770,66 +772,72 @@ function WhyInvest() {
     { icon: Key, t: "Limited Entry Opportunity", d: "Exclusive availability with a limited number of units remaining in this premium phase. Rarity dictates value." },
   ];
   const { ref, inView } = useInView();
+return(
+  <section id="whyinvest" className="py-12 lg:py-16 overflow-hidden">
+  {/* Added 'flex flex-col items-center' to parent div to center everything */}
+  <div className="mx-auto max-w-[1120px] px-4 lg:px-6 xl:px-8 flex flex-col items-center">
+    
+    {/* Centering the Label and Title */}
+    <div className="flex flex-col items-center text-center">
+      <SectionLabel n="05" t="EXCLUSIVE OPPORTUNITY" />
+      <TypewriterTitle />
+      <p className="max-w-3xl text-foreground/70 text-[16px] leading-relaxed mb-12 text-center">
+        The convergence of strategic location, architectural brilliance, and optimal market timing creates an unprecedented window for discerning investors.
+      </p>
+    </div>
 
-  return (
-    <section id="whyinvest" className="py-12 lg:py-16 overflow-hidden">
-      <div className="mx-auto max-w-[1120px] px-4 lg:px-6 xl:px-8">
-        <SectionLabel n="05" t="EXCLUSIVE OPPORTUNITY" />
-        <TypewriterTitle />
-        <p className="max-w-3xl text-foreground/70 text-[16px] leading-relaxed mb-8">
-          The convergence of strategic location, architectural brilliance, and optimal market timing creates an unprecedented window for discerning investors.
-        </p>
+    {/* Centering the Grid: Added 'mx-auto' and ensured max-width is controlled */}
+    <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 min-h-[410px] max-w-5xl mx-auto w-full">
+      {items.map(({ icon: Icon, t, d }, i) => {
+        const isActive = i === active;
+        return (
+          <div
+            key={t}
+            className={`h-full w-full flex flex-col transition-all duration-1000 transform ${inView ? 'translate-y-0 opacity-100' : 'translate-y-24 opacity-0'}`}
+            style={{ transitionDelay: `${i * 150}ms` }}
+          >
+            <TiltCard
+              className={[
+                "h-full group relative w-full rounded-[16px] p-5 min-h-[250px] flex flex-col transition-colors cursor-pointer",
+                isActive
+                  ? "bg-gradient-to-b from-[#D4A865] via-[#C69A57] to-[#9B7335] text-black shadow-[0_55px_170px_-140px_oklch(0.78_0.13_75/0.80)]"
+                  : "border border-[oklch(0.65_0.10_70/0.22)] bg-[linear-gradient(180deg,oklch(0.20_0.014_60/0.55),oklch(0.17_0.012_60/0.35))] backdrop-blur text-foreground hover:border-[oklch(0.78_0.13_75/0.45)]",
+              ].join(" ")}
+              onMouseEnter={() => setActive(i)}
+              onMouseLeave={() => setActive(0)}
+              onClick={() => setActive(i)}
+              onTouchStart={() => setActive(i)}
+            >
+              {!isActive && (
+                <div className="pointer-events-none absolute inset-0 rounded-[20px] ring-1 ring-inset ring-[oklch(0.85_0.12_80/0.07)] opacity-55 group-hover:opacity-100 transition-opacity" />
+              )}
 
-        <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 min-h-[410px] max-w-4xl">
-          {items.map(({ icon: Icon, t, d }, i) => {
-            const isActive = i === active;
-            return (
               <div
-                key={t}
-                className={`h-full w-full flex flex-col transition-all duration-1000 transform ${inView ? 'translate-y-0 opacity-100' : 'translate-y-24 opacity-0'}`}
-                style={{ transitionDelay: `${i * 150}ms` }}
+                className={[
+                  "relative h-10 w-10 rounded-full flex items-center justify-center mb-5",
+                  isActive
+                    ? "bg-[oklch(0.16_0.012_60/0.18)] shadow-[0_26px_70px_-44px_oklch(0.16_0.012_60/0.35)]"
+                    : "bg-background/10 border border-[oklch(0.65_0.10_70/0.26)] shadow-[inset_0_0_0_1px_oklch(0.85_0.12_80/0.06)]",
+                ].join(" ")}
               >
-                <TiltCard
-                  className={[
-                    "h-full group relative w-full rounded-[16px] p-4 min-h-[220px] flex flex-col transition-colors cursor-pointer",
-                    isActive
-                      ? "bg-gradient-to-b from-[#D4A865] via-[#C69A57] to-[#9B7335] text-black shadow-[0_55px_170px_-140px_oklch(0.78_0.13_75/0.80)]"
-                      : "border border-[oklch(0.65_0.10_70/0.22)] bg-[linear-gradient(180deg,oklch(0.20_0.014_60/0.55),oklch(0.17_0.012_60/0.35))] backdrop-blur text-foreground hover:border-[oklch(0.78_0.13_75/0.45)]",
-                  ].join(" ")}
-                  onMouseEnter={() => setActive(i)}
-                  onMouseLeave={() => setActive(0)}
-                  onClick={() => setActive(i)}
-                  onTouchStart={() => setActive(i)}
-                >
-                  {!isActive && (
-                    <div className="pointer-events-none absolute inset-0 rounded-[20px] ring-1 ring-inset ring-[oklch(0.85_0.12_80/0.07)] opacity-55 group-hover:opacity-100 transition-opacity" />
-                  )}
-
-                  <div
-                    className={[
-                      "relative h-10 w-10 rounded-full flex items-center justify-center mb-5",
-                      isActive
-                        ? "bg-[oklch(0.16_0.012_60/0.18)] shadow-[0_26px_70px_-44px_oklch(0.16_0.012_60/0.35)]"
-                        : "bg-background/10 border border-[oklch(0.65_0.10_70/0.26)] shadow-[inset_0_0_0_1px_oklch(0.85_0.12_80/0.06)]",
-                    ].join(" ")}
-                  >
-                    {isActive ? (
-                      <Icon className="h-4 w-4 text-[oklch(0.16_0.012_60)]" />
-                    ) : (
-                      <Icon className="h-4 w-4 text-[#C69A57] drop-shadow-sm" strokeWidth={1.5} />
-                    )}
-                  </div>
-                  <h3 className="relative font-serif text-[17px] mb-1.5 leading-snug mt-4">{t}</h3>
-                  <p className={`relative text-[12px] leading-relaxed ${isActive ? "text-[oklch(0.16_0.012_60/0.82)]" : "text-foreground/65"}`}>
-                    {d}
-                  </p>
-                </TiltCard>
+                {isActive ? (
+                  <Icon className="h-4 w-4 text-[oklch(0.16_0.012_60)]" />
+                ) : (
+                  <Icon className="h-4 w-4 text-[#C69A57] drop-shadow-sm" strokeWidth={1.5} />
+                )}
               </div>
-            );
-          })}
-        </div>
-      </div>
-    </section>
+              <h3 className="relative font-serif text-[17px] mb-1.5 leading-snug mt-4">{t}</h3>
+              <p className={`relative text-[12px] leading-relaxed ${isActive ? "text-[oklch(0.16_0.012_60/0.82)]" : "text-foreground/65"}`}>
+                {d}
+              </p>
+            </TiltCard>
+          </div>
+        );
+      })}
+    </div>
+  </div>
+  
+</section>
   );
 }
 
@@ -855,7 +863,7 @@ function Amenities() {
             <span className="italic" style={{ color: "oklch(0.83 0.11 78)" }}>Performs.</span>
           </h2>
           <p className="text-foreground/70 text-lg leading-relaxed lg:mt-8">
-            Sindhu Bhavan isn't only an address — it's an ecosystem. Wellness, productivity, hospitality and convenience, all engineered into one landmark building.
+            Sindhu Bhavan isn't only an address - it's an ecosystem. Wellness, productivity, hospitality and convenience, all engineered into one landmark building.
           </p>
         </div>
 
@@ -1223,7 +1231,7 @@ function EnquiryForm() {
                 name="user_phone"
                 required
                 type="tel"
-                placeholder="+91 ——————"
+                placeholder="+91 ------"
                 className="mt-3 w-full rounded-xl border border-[oklch(0.65_0.10_70/0.22)] bg-background/20 px-5 py-4 text-foreground placeholder:text-foreground/30 shadow-[inset_0_0_0_1px_oklch(0.85_0.12_80/0.05)] focus:outline-none focus:border-[oklch(0.78_0.13_75/0.55)] transition"
               />
             </div>
@@ -1321,7 +1329,7 @@ function EnquireNow() {
                 15–18<span className="text-5xl sm:text-6xl md:text-[4rem] lg:text-[4rem]">%</span>
               </div>
               <p className="text-sm text-foreground/65 mt-4">
-                Expected annual ROI — rental yield + capital appreciation.
+                Expected annual ROI - rental yield + capital appreciation.
               </p>
             </div>
           </div>
