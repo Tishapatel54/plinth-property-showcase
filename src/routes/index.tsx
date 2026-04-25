@@ -287,7 +287,7 @@ function Hero() {
             <span className="h-px w-8 bg-[#C69A57]/60" />
             <span className="text-[10px] tracking-[0.3em] text-[#C69A57]">EXPECTED ANNUAL ROI</span>
           </div>
-          <div className="font-serif text-[62px] sm:text-[86px] lg:text-[98px] leading-[1.1] italic bg-gradient-to-b from-[#F5E9C8] via-[#E3C98B] to-[#C69A57] bg-clip-text text-transparent drop-shadow-md mb-5">
+          <div className="roi-display font-serif text-[62px] sm:text-[86px] lg:text-[98px] leading-[1.1] italic bg-gradient-to-b from-[#F5E9C8] via-[#E3C98B] to-[#C69A57] bg-clip-text text-transparent drop-shadow-md mb-5">
             15-18<span className="text-[42px] sm:text-[58px] lg:text-[70px]">%</span>
           </div>
           <p className="text-white/70 text-[14px] leading-relaxed max-w-[390px] mb-10">
@@ -309,7 +309,7 @@ function Hero() {
           {/* 3 Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 lg:max-w-[480px]">
             {[
-              { icon: TrendingUp, label: "STARTING", v: "Ã¢â€šÂ¹65 Lakhs" },
+              { icon: TrendingUp, label: "STARTING", v: "₹65 Lakhs" },
               { icon: Building2, label: "OFFICE FROM", v: "900 Sq.ft" },
               { icon: Store, label: "SHOWROOM FROM", v: "2700 Sq.ft" },
             ].map(({ icon: Icon, label, v }) => (
@@ -323,76 +323,81 @@ function Hero() {
         </div>
 
         {/* RIGHT - tower */}
-        <div className="relative pt-10 lg:pt-0 pb-[-90]">
+        <div className="relative pt-8 sm:pt-10 lg:pt-0">
           {/* Main Image Frame */}
-          <div className="lg:mt-[-90px] relative rounded-[28px] border border-[#C69A57]/30 bg-[#0A0A0A] aspect-[4/5] lg:aspect-[3/4] max-h-[600px] overflow-visible ">
+          <div className="lg:mt-[-90px] relative mx-auto w-full max-w-[420px] rounded-[32px] border border-[#C69A57]/30 bg-[#0A0A0A] aspect-[9/13] sm:aspect-[4/5] lg:aspect-[3/4] overflow-visible shadow-[0_30px_100px_-20px_rgba(0,0,0,0.8)]">
             <style dangerouslySetInnerHTML={{
               __html: `
-              @keyframes hero-slide {
-                0%, 28% { transform: translateX(0%); }
-                33%, 61% { transform: translateX(-33.333%); }
-                66%, 95% { transform: translateX(-66.666%); }
-                100% { transform: translateX(0%); }
+              @keyframes hero-loop-slide {
+                0%, 30% { transform: translateX(0); }
+                33%, 63% { transform: translateX(-25%); }
+                66%, 96% { transform: translateX(-50%); }
+                100% { transform: translateX(-75%); }
               }
             `}} />
 
             <div className="absolute inset-0 rounded-[32px] overflow-hidden">
-              <div className="absolute inset-0 w-[300%] flex h-full" style={{ animation: "hero-slide 18s cubic-bezier(0.8,0,0.2,1) infinite" }}>
-                {[tower, plinthOffice, plinthShowroom].map((src, i) => (
-                  <div key={i} className="relative w-1/3 h-full">
+              <div className="absolute inset-0 w-[400%] flex h-full" style={{ animation: "hero-loop-slide 15s cubic-bezier(0.4, 0, 0.2, 1) infinite" }}>
+                {[tower, plinthOffice, plinthShowroom, tower].map((src, i) => (
+                  <div key={i} className="relative w-1/4 h-full">
                     <img
                       src={src}
                       alt={`Plinth feature ${i + 1}`}
-                      className="absolute inset-0 h-full w-full object-cover"
-
+                      className="absolute inset-0 h-full w-full object-cover object-center"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-black/40" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20" />
                   </div>
                 ))}
               </div>
 
-              {/* top tags */}
-              <div className="absolute top-6 left-6 rounded-full border border-[#E3C98B]/60 bg-[#0A0A0A]/40 backdrop-blur px-5 py-2 text-[8px] tracking-[0.3em] text-white/70">
-                G + 38 STOREY
-              </div>
-              <div className="absolute top-6 right-6 rounded-full border border-[#E3C98B]/60 bg-[#0A0A0A]/40 backdrop-blur px-5 py-2 text-[8px] tracking-[0.3em] text-white/70">
-                LANDMARK
-              </div>
-            </div>
-
-            {/* floating PROPERTY APPRECIATION card */}
-            <div className="absolute -left-3 sm:-left-10 top-24 rounded-2xl border border-[#E3C98B]/60  bg-background/15 backdrop-blur p-4 shadow-[0_40px_140px_-110px_oklch(0.78_0.13_75/0.40)] backdrop-blur z-10 w-52">
-              <div className="text-[8px] tracking-[0.2em] text-[#C69A57] mb-2">PROPERTY APPRECIATION</div>
-              <div className="font-serif text-2xl text-[#C69A57] mb-1">15-18%</div>
-              <p className="text-[10px] text-white/40 leading-relaxed max-w-[150px]">Expected annual returns on investment</p>
-            </div>
-
-            {/* CEILING HEIGHT card */}
-            <div className="absolute right-0 sm:-right-6 bottom-24 rounded-xl border border-[#E3C98B]/60 bg-background/15 backdrop-blur px-4 py-3 shadow-2xl z-10">
-              <div className="text-[8px] tracking-[0.2em] text-[#C69A57] mb-1.5">CEILING HEIGHT</div>
-              <div className="font-serif text-xl text-white/90">
-                11.5 <span className="italic text-white/50 text-base">ft</span>
+              {/* Top Tags - Improved mobile positioning */}
+              <div className="absolute top-5 inset-x-5 flex justify-between gap-2 z-20">
+                <div className="rounded-full border border-[#E3C98B]/40 bg-black/40 backdrop-blur-md px-4 py-2 text-[8px] sm:text-[9px] tracking-[0.2em] text-white/90 font-medium">
+                  G + 38 STOREY
+                </div>
+                <div className="rounded-full border border-[#E3C98B]/40 bg-black/40 backdrop-blur-md px-4 py-2 text-[8px] sm:text-[9px] tracking-[0.2em] text-white/90 font-medium">
+                  LANDMARK
+                </div>
               </div>
             </div>
 
-            {/* bottom development bar */}
-            <div className="absolute left-5 right-5 bottom-5 rounded-2xl border border-[#E3C98B]/60 bg-background/15 backdrop-blur px-4 py-3 flex items-center justify-between z-10">
+            {/* floating PROPERTY APPRECIATION card - Adjusted mobile dimensions */}
+            <div className="absolute -left-4 sm:-left-12 top-[22%] rounded-2xl border border-[#E3C98B]/40 bg-black/20 backdrop-blur-xl px-5 py-7 shadow-[0_20px_50px_-10px_rgba(0,0,0,0.5),0_10px_30px_-15px_rgba(227,201,139,0.2)] z-10 w-48 sm:w-56 min-h-[160px] sm:min-h-0 group transition-all hover:border-[#E3C98B]/60">
+              <div className="text-[8px] tracking-[0.15em] text-[#E3C98B]/80 mb-3 font-medium">PROPERTY APPRECIATION</div>
+              <div className="roi-display font-serif text-[40px] sm:text-[42px] leading-none text-[#E3C98B] mb-3">15-18%</div>
+              <p className="text-[10px] sm:text-[11px] text-white/60 leading-relaxed font-light max-w-[140px]">Expected annual returns on investment</p>
+              {/* Subtle inner glow */}
+              <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/5 pointer-events-none" />
+            </div>
+
+            {/* CEILING HEIGHT card - Moved lower on mobile */}
+            <div className="absolute -right-4 sm:-right-8 bottom-[20%] rounded-2xl border border-[#E3C98B]/40 bg-black/20 backdrop-blur-xl px-5 py-5 shadow-[0_20px_50px_-10px_rgba(0,0,0,0.5),0_10px_30px_-15px_rgba(227,201,139,0.2)] z-10 w-36 sm:w-44 group transition-all hover:border-[#E3C98B]/60">
+              <div className="text-[8px] tracking-[0.15em] text-[#E3C98B]/80 mb-2 font-medium">CEILING HEIGHT</div>
+              <div className="font-serif text-[32px] sm:text-[38px] leading-none text-white/90">
+                11.5 <span className="italic text-white/40 text-lg sm:text-xl ml-0.5">ft</span>
+              </div>
+              <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/5 pointer-events-none" />
+            </div>
+
+            {/* bottom development bar - Perfect mobile positioning */}
+            <div className="absolute left-4 right-4 bottom-4 rounded-[20px] border border-[#E3C98B]/40 bg-black/30 backdrop-blur-xl px-5 py-4 flex items-center justify-between gap-4 z-10 group transition-all hover:border-[#E3C98B]/60">
               <div>
-                <div className="text-[8px] tracking-[0.25em] text-[#C69A57] mb-1.5">THE DEVELOPMENT</div>
-                <div className="font-serif text-[15px] text-white">Sindhu Bhavan, Ahmedabad</div>
+                <div className="text-[8px] tracking-[0.2em] text-[#E3C98B]/80 mb-1.5 font-medium uppercase">THE DEVELOPMENT</div>
+                <div className="font-serif text-[15px] sm:text-[17px] text-white tracking-wide">Sindhu Bhavan, Ahmedabad</div>
               </div>
               <button
                 type="button"
                 aria-label="Explore"
-                className="h-9 w-9 shrink-0 rounded-full bg-gradient-to-r from-[#F5E9C8] via-[#E3C98B] to-[#C69A57] text-black flex items-center justify-center transition-transform hover:scale-105"
+                className="h-10 w-10 shrink-0 rounded-full bg-gradient-to-br from-[#F5E9C8] via-[#E3C98B] to-[#C69A57] text-black flex items-center justify-center transition-all hover:scale-110 active:scale-95 shadow-[0_0_20px_-5px_rgba(227,201,139,0.5)]"
               >
                 <ArrowRight className="h-4 w-4" />
               </button>
+              <div className="absolute inset-0 rounded-[20px] ring-1 ring-inset ring-white/5 pointer-events-none" />
             </div>
           </div>
         </div>
       </div>
-    </section >
+    </section>
   );
 }
 
@@ -404,7 +409,7 @@ function ROISection() {
       <div className="mx-auto max-w-[1120px] px-4 lg:px-6 xl:px-8">
         <SectionLabel n="02" t="INVESTMENT OPPORTUNITY" />
         <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight text-foreground max-w-4xl">
-          Earn up to   <span className="italic bg-gradient-to-b from-[#F5E9C8] via-[#E3C98B] to-[#C69A57] bg-clip-text text-transparent">
+          Earn up to   <span className="roi-display italic bg-gradient-to-b from-[#F5E9C8] via-[#E3C98B] to-[#C69A57] bg-clip-text text-transparent">
             15-18%
           </span>
           <br />
@@ -512,7 +517,7 @@ function ROISection() {
                 {/* Description */}
                 <p className="relative text-[10px] text-foreground/55 mt-0.5 leading-snug">{d}</p>
               </div>
-              
+
             ))}
           </div>
         </div >
@@ -640,13 +645,13 @@ function Spaces() {
 
         <div className="grid lg:grid-cols-2 gap-5 max-w-[860px] mx-auto">
           {cards.map((c) => (
-            <div key={c.tag} className="rounded-[24px] border border-[#C69A57]/40 bg-[#141414] overflow-hidden group transition-all duration-700 hover:shadow-[0_0_50px_-15px_#C69A57]">
+            <div key={c.tag} className="rounded-[24px] border border-[#C69A57]/40 bg-[#141414] overflow-hidden group transition-all duration-700 hover:shadow-[0_0_50px_-15px_#C69A57] active:shadow-[0_0_50px_-15px_#C69A57]">
 
               {/* Image Section with Overlay Text */}
-              <div className="relative h-[195px] sm:h-[195px] md:h-[230px] overflow-hidden group/scroll">
+              <div className="relative h-[195px] sm:h-[195px] md:h-[230px] overflow-hidden group/image cursor-pointer">
                 {/* Scrolling Slider Container */}
                 <div
-                  className="flex h-full"
+                  className="flex h-full transition-transform duration-500 group-hover/image:scale-[1.02] group-active/image:scale-[1.02]"
                   style={{
                     width: "400%",
                     animation: "spaces-slide 16s cubic-bezier(0.4, 0, 0.2, 1) infinite"
@@ -665,9 +670,10 @@ function Spaces() {
 
                 {/* Fixed Overlay Gradient */}
                 <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-[#141414] via-[#141414]/20 to-black/20" />
+                <div className="absolute inset-0 pointer-events-none rounded-[2px] ring-1 ring-inset ring-[#E3C98B]/0 transition-all duration-300 group-hover/image:ring-[#E3C98B]/60 group-active/image:ring-[#E3C98B]/60" />
 
                 {/* Badge */}
-                <div className="absolute top-4 left-5 rounded-full border border-white/10 bg-black/40 backdrop-blur-md px-5 py-2 text-[9px] tracking-[0.3em] text-white font-bold uppercase">
+                <div className="absolute top-4 left-5 rounded-full border border-[#E3C98B]/40 bg-black/60 backdrop-blur-md px-5 py-2 text-[9px] tracking-[0.3em] text-white/90 font-medium uppercase shadow-lg">
                   {c.tag}
                 </div>
 
@@ -696,11 +702,11 @@ function Spaces() {
 
                 <ul className="mt-3 space-y-2">
                   {c.features.map((f) => (
-                    <li key={f} className="group flex items-start gap-3 text-[13px] text-white/50 font-light leading-relaxed cursor-pointer transition-colors duration-300 hover:text-[#E3C98B]">
-                      <span className="mt-1 h-5 w-5 rounded-full border border-[#C69A57]/30 flex items-center justify-center shrink-0 bg-[#C69A57]/5 transition-all duration-300 group-hover:border-[#C69A57] group-hover:bg-[#C69A57]/20">
-                        <Check className="h-2.5 w-2.5 text-[#C69A57] transition-transform duration-300 group-hover:scale-125" />
+                    <li key={f} className="group/item flex items-start gap-3 text-[13px] text-white/50 font-light leading-relaxed cursor-pointer transition-colors duration-300 hover:text-[#E3C98B] active:text-[#E3C98B]">
+                      <span className="mt-1 h-5 w-5 rounded-full border border-[#C69A57]/30 flex items-center justify-center shrink-0 bg-[#C69A57]/5 transition-all duration-300 group-hover/item:border-[#C69A57] group-hover/item:bg-[#C69A57]/20 group-active/item:border-[#C69A57] group-active/item:bg-[#C69A57]/20">
+                        <Check className="h-2.5 w-2.5 text-[#C69A57] transition-transform duration-300 group-hover/item:scale-125 group-active/item:scale-125" />
                       </span>
-                      <span className="transition-transform duration-300 group-hover:translate-x-1">{f}</span>
+                      <span className="transition-transform duration-300 group-hover/item:translate-x-1 group-active/item:translate-x-1">{f}</span>
                     </li>
                   ))}
                 </ul>
@@ -933,9 +939,9 @@ function Location() {
 
             <div className="space-y-3">
               {places.map(({ icon: Icon, t, d }) => (
-                <div key={t} className="rounded-2xl border border-[#E3C98B]/20 bg-[#0A0A0A]/40 px-6 py-5 flex items-center justify-between hover:border-[#E3C98B]/40 transition-colors">
+                <div key={t} className="group rounded-2xl border border-[#E3C98B]/20 bg-[#0A0A0A]/40 px-6 py-5 flex items-center justify-between transition-all duration-300 hover:border-[#E3C98B]/40 hover:shadow-[0_0_28px_-14px_#C69A57] active:border-[#E3C98B]/45 active:shadow-[0_0_28px_-14px_#C69A57] focus-within:border-[#E3C98B]/45 focus-within:shadow-[0_0_28px_-14px_#C69A57]">
                   <div className="flex items-center gap-5">
-                    <div className="h-10 w-10 rounded-full border border-[#E3C98B]/20 flex items-center justify-center shrink-0">
+                    <div className="h-10 w-10 rounded-full border border-[#E3C98B]/20 flex items-center justify-center shrink-0 transition-colors duration-300 group-hover:border-[#E3C98B]/40 group-active:border-[#E3C98B]/45">
                       <Icon className="h-4 w-4 text-[#E3C98B]" />
                     </div>
                     <span className="text-white/80 text-[15px] font-light tracking-wide">{t}</span>
@@ -947,19 +953,19 @@ function Location() {
           </div>
 
           {/* Map */}
-          <div className="mb-6 relative rounded-3xl border border-[#E3C98B]/20 bg-[#0A0A0A] aspect-[4/3] lg:aspect-[1.45/1] max-h-[380px] overflow-hidden shadow-[0_40px_160px_-120px_oklch(0.78_0.13_75/0.55)]">
+          <div className="mb-6 relative rounded-2xl sm:rounded-3xl border border-[#E3C98B]/20 bg-[#0A0A0A] aspect-[1/1.06] sm:aspect-[4/3] lg:aspect-[1.45/1] min-h-[300px] sm:min-h-0 max-h-[440px] overflow-hidden shadow-[0_40px_160px_-120px_oklch(0.78_0.13_75/0.55)]">
             {/* Top Left Label */}
-            <div className="absolute top-6 left-6 rounded-full border border-[#E3C98B]/30 bg-black/60 backdrop-blur-md px-5 py-2 text-[11px] tracking-widest text-white flex items-center gap-2 z-20">
-              <MapPin className="h-3.5 w-3.5 text-[#E3C98B]" />
-              <span className="font-medium text-white/90">Sindhu Bhavan Rd, Ahmedabad - 380054</span>
+            <div className="absolute top-4 left-4 sm:top-6 sm:left-6 rounded-full border border-[#E3C98B]/30 bg-black/60 backdrop-blur-md px-3.5 sm:px-5 py-2 text-[9px] sm:text-[11px] tracking-[0.16em] sm:tracking-widest text-white flex items-center gap-2 z-20 max-w-[calc(100%-2rem)] sm:max-w-[calc(100%-3rem)]">
+              <MapPin className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-[#E3C98B] shrink-0" />
+              <span className="font-medium text-white/90 truncate">Sindhu Bhavan Rd, Ahmedabad - 380054</span>
             </div>
 
             {/* Bottom Right Score */}
-            <div className="absolute bottom-6 right-6 rounded-xl border border-[#E3C98B]/30 bg-black/60 backdrop-blur-md px-6 py-4 text-right z-20 flex flex-col gap-2">
-              <div className="text-[9px] tracking-[0.3em] text-[#E3C98B]">CONNECTIVITY SCORE</div>
+            <div className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 rounded-xl border border-[#E3C98B]/30 bg-black/60 backdrop-blur-md px-3.5 sm:px-6 py-3 sm:py-4 text-right z-20 flex flex-col gap-1.5 sm:gap-2 w-[9.75rem] sm:w-auto">
+              <div className="text-[8px] sm:text-[9px] tracking-[0.2em] sm:tracking-[0.3em] text-[#E3C98B] whitespace-nowrap">CONNECTIVITY SCORE</div>
               <div className="flex items-baseline justify-end gap-1">
-                <span className="font-serif text-4xl text-[#E3C98B]">9.6</span>
-                <span className="text-[11px] tracking-widest text-white/50">/ 10</span>
+                <span className="font-serif text-[2rem] sm:text-4xl leading-none text-[#E3C98B]">9.6</span>
+                <span className="text-[10px] sm:text-[11px] tracking-[0.18em] sm:tracking-widest text-white/50">/ 10</span>
               </div>
             </div>
 
@@ -1007,6 +1013,7 @@ function Location() {
             </div>
           </div>
         </div>
+
       </div>
     </section>
   );
@@ -1059,11 +1066,11 @@ function DeveloperLegacy() {
         </div>
 
         {/* Featured in strip */}
-        <div className="mt-10 rounded-full border border-[oklch(0.65_0.10_70/0.22)] bg-[linear-gradient(180deg,oklch(0.20_0.014_60/0.40),oklch(0.17_0.012_60/0.25))] backdrop-blur px-5 py-4 flex flex-wrap items-center justify-between gap-5">
-          <div className="text-[13px] tracking-[0.28em] text-[#E3C98B]/90">FEATURED IN</div>
-          <div className="flex flex-wrap items-center gap-x-12 gap-y-3">
+        <div className="mt-10 rounded-3xl sm:rounded-full border border-[oklch(0.65_0.10_70/0.22)] bg-[linear-gradient(180deg,oklch(0.20_0.014_60/0.40),oklch(0.17_0.012_60/0.25))] backdrop-blur px-4 sm:px-6 lg:px-8 py-4 sm:py-5 flex flex-col sm:flex-row items-center sm:items-center justify-center sm:justify-between gap-4 sm:gap-5">
+          <div className="text-[10px] sm:text-[13px] tracking-[0.24em] sm:tracking-[0.28em] text-[#E3C98B]/90 text-center sm:text-left">FEATURED IN</div>
+          <div className="w-full sm:w-auto flex flex-wrap items-center justify-center sm:justify-start gap-x-6 sm:gap-x-12 gap-y-2 sm:gap-y-3">
             {press.map((p) => (
-              <span key={p} className="font-serif text-[18px] text-foreground/70">{p}</span>
+              <span key={p} className="font-serif text-[15px] sm:text-[18px] text-foreground/70 whitespace-nowrap">{p}</span>
             ))}
           </div>
         </div>
@@ -1120,7 +1127,7 @@ function InvestmentCTA() {
         <div className="text-[12px] tracking-[0.35em] text-[#E3C98B]/90 mb-3">EXPECTED ANNUAL ROI</div>
 
         <div
-          className="font-serif leading-[1.1] text-[2.9rem] sm:text-[6rem] md:text-[7.5rem] lg:text-[9rem] bg-gradient-to-b from-[#F5E9C8] via-[#E3C98B] to-[#C69A57] bg-clip-text text-transparent"
+          className="roi-display font-serif leading-[1.1] text-[2.9rem] sm:text-[6rem] md:text-[7.5rem] lg:text-[9rem] bg-gradient-to-b from-[#F5E9C8] via-[#E3C98B] to-[#C69A57] bg-clip-text text-transparent"
         >
           15-18<span className="text-[1.8rem] sm:text-[3rem] md:text-[4.5rem] lg:text-[6.5rem]">%</span>
         </div>
@@ -1364,16 +1371,16 @@ function SiteFooter() {
   const navLinks = ["ROI & Returns", "Project Highlights", "Space Options", "Amenities", "Location", "Contact"];
   const socials = [Instagram, Facebook, Linkedin, Youtube];
   return (
-    <footer className="relative border-t border-[oklch(0.65_0.10_70/0.18)] pt-10 pb-10 overflow-hidden">
+    <footer className="relative border-t border-[oklch(0.65_0.10_70/0.18)] pt-10 sm:pt-12 pb-10 sm:pb-12 overflow-hidden">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_20%_30%,oklch(0.78_0.13_75/0.08),transparent_60%)]" />
-      <div className="mx-auto max-w-[1120px] px-4 lg:px-6 xl:px-8">
-        <div className="grid lg:grid-cols-3 gap-14 lg:gap-16">
+      <div className="mx-auto max-w-[1120px] px-4 sm:px-5 lg:px-6 xl:px-8">
+        <div className="grid lg:grid-cols-3 gap-10 sm:gap-12 lg:gap-16">
           {/* About */}
-          <div>
-            <div className="relative h-12 w-12 rounded-full bg-[linear-gradient(135deg,oklch(0.86_0.12_80),oklch(0.65_0.13_65))] mb-8 shadow-[0_26px_70px_-44px_oklch(0.78_0.13_75/0.85)]">
+          <div className="text-center sm:text-left">
+            <div className="relative h-12 w-12 rounded-full bg-[linear-gradient(135deg,oklch(0.86_0.12_80),oklch(0.65_0.13_65))] mb-6 sm:mb-8 shadow-[0_26px_70px_-44px_oklch(0.78_0.13_75/0.85)] mx-auto sm:mx-0">
               <div className="pointer-events-none absolute -inset-6 rounded-full bg-[radial-gradient(circle,oklch(0.86_0.12_80/0.22),transparent_70%)]" />
             </div>
-            <p className="text-sm text-foreground/65 leading-relaxed max-w-md">
+            <p className="text-sm text-foreground/65 leading-relaxed max-w-md mx-auto sm:mx-0">
               Looking for{" "}
               <span className="text-[#E3C98B]">office space in Sindhu Bhavan Ahmedabad</span>?
               This premium commercial project offers modern office spaces and showroom units with{" "}
@@ -1381,7 +1388,7 @@ function SiteFooter() {
               G+38 storey landmark design, green building certification, 18 high-speed lifts, and
               4-level basement parking in Ahmedabad's most prestigious business corridor.
             </p>
-            <div className="mt-8 flex items-center gap-3">
+            <div className="mt-6 sm:mt-8 flex items-center justify-center sm:justify-start gap-3">
               {socials.map((Icon, i) => (
                 <a
                   key={i}
@@ -1396,9 +1403,9 @@ function SiteFooter() {
           </div>
 
           {/* Navigate */}
-          <div>
-            <div className="text-[12px] tracking-[0.30em] text-[#E3C98B]/90 mb-8">NAVIGATE</div>
-            <ul className="space-y-5 text-sm text-foreground/80">
+          <div className="text-center sm:text-left">
+            <div className="text-[11px] sm:text-[12px] tracking-[0.30em] text-[#E3C98B]/90 mb-5 sm:mb-8">NAVIGATE</div>
+            <ul className="space-y-4 sm:space-y-5 text-sm text-foreground/80">
               {navLinks.map((l) => (
                 <li key={l}>
                   <a href="#" className="hover:text-[#E3C98B] transition">{l}</a>
@@ -1408,22 +1415,22 @@ function SiteFooter() {
           </div>
 
           {/* Contact */}
-          <div>
-            <div className="text-[12px] tracking-[0.30em] text-[#E3C98B]/90 mb-8">CONTACT</div>
-            <ul className="space-y-5 text-sm text-foreground/80">
-              <li className="flex items-start gap-4">
+          <div className="text-center sm:text-left">
+            <div className="text-[11px] sm:text-[12px] tracking-[0.30em] text-[#E3C98B]/90 mb-5 sm:mb-8">CONTACT</div>
+            <ul className="space-y-4 sm:space-y-5 text-sm text-foreground/80">
+              <li className="flex items-start justify-center sm:justify-start gap-3 sm:gap-4">
                 <MapPin className="h-4 w-4 text-[#E3C98B] mt-1 shrink-0" />
                 <a href="https://maps.google.com/?q=Sindhu+Bhavan+Road,+Bodakdev,+Ahmedabad,+Gujarat+380054" target="_blank" rel="noopener noreferrer" className="hover:text-[#E3C98B] transition">
                   Sindhu Bhavan Road, Bodakdev, Ahmedabad, Gujarat 380054
                 </a>
               </li>
-              <li className="flex items-center gap-4">
+              <li className="flex items-center justify-center sm:justify-start gap-3 sm:gap-4">
                 <Phone className="h-4 w-4 text-[#E3C98B]" />
                 <a href="tel:+919898709370" className="hover:text-[#E3C98B] transition">
                   +91 9898709370
                 </a>
               </li>
-              <li className="flex items-center gap-4">
+              <li className="flex items-center justify-center sm:justify-start gap-3 sm:gap-4">
                 <Mail className="h-4 w-4 text-[#E3C98B]" />
                 <a href="mailto:info@plinthreality.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#E3C98B] transition">
                   info@plinthreality.com
@@ -1431,17 +1438,17 @@ function SiteFooter() {
               </li>
             </ul>
 
-            <div className="mt-8 relative rounded-2xl border border-[oklch(0.65_0.10_70/0.22)] bg-[linear-gradient(180deg,oklch(0.20_0.014_60/0.50),oklch(0.17_0.012_60/0.30))] backdrop-blur p-6 overflow-hidden">
+            <div className="mt-6 sm:mt-8 relative rounded-2xl border border-[oklch(0.65_0.10_70/0.22)] bg-[linear-gradient(180deg,oklch(0.20_0.014_60/0.50),oklch(0.17_0.012_60/0.30))] backdrop-blur p-4 sm:p-6 overflow-hidden">
               <div className="pointer-events-none absolute -top-12 -left-12 h-48 w-48 rounded-full transparent_68%)]" />
-              <div className="relative text-[10px] tracking-[0.35em] text-[#E3C98B]/90 mb-3">EXPECTED ROI</div>
-              <div className="relative font-serif text-4xl italic bg-gradient-to-b from-[#F5E9C8] via-[#E3C98B] to-[#C69A57] bg-clip-text text-transparent">
+              <div className="relative text-[9px] sm:text-[10px] tracking-[0.32em] sm:tracking-[0.35em] text-[#E3C98B]/90 mb-2 sm:mb-3">EXPECTED ROI</div>
+              <div className="roi-display relative font-serif text-[2rem] sm:text-4xl italic bg-gradient-to-b from-[#F5E9C8] via-[#E3C98B] to-[#C69A57] bg-clip-text text-transparent">
                 15-18% p.a.
               </div>
             </div>
           </div>
         </div>
 
-        <div className="mt-16 pt-8 border-t border-[oklch(0.65_0.10_70/0.16)] flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-xs text-foreground/45">
+        <div className="mt-10 sm:mt-14 pt-6 sm:pt-8 border-t border-[oklch(0.65_0.10_70/0.16)] flex flex-col md:flex-row items-center md:items-center justify-between gap-3 sm:gap-4 text-xs text-foreground/45 text-center md:text-left">
           <span>© {new Date().getFullYear()} Sindhu Bhavan. All rights reserved.<br />Made with by <a href="https://13utopia.com">13UTOPiA</a></span>
 
           <span className="flex items-center gap-1.5">
@@ -1449,14 +1456,14 @@ function SiteFooter() {
             <Heart className="h-3.5 w-3.5 text-red-500 fill-red-500 animate-pulse" />
             by <a href="https://13utopia.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#C69A57] transition-colors">13UTOPiA</a>
           </span>
-          <div className="flex flex-wrap gap-x-8 gap-y-2">
+          <div className="flex flex-wrap justify-center md:justify-end gap-x-5 sm:gap-x-8 gap-y-2">
             <a href="#" className="hover:text-[#E3C98B]">Privacy Policy</a>
             <a href="#" className="hover:text-[#E3C98B]">Terms</a>
             <a href="#" className="hover:text-[#E3C98B]">Pre-Launch Project</a>
             <a href="#" className="hover:text-[#E3C98B]">Disclaimer</a>
           </div>
         </div>
-        <p className="mt-6 text-[11px] text-foreground/40 leading-relaxed">
+        <p className="mt-5 sm:mt-6 text-[11px] text-foreground/40 leading-relaxed text-center md:text-left">
           Disclaimer: Images are artistic impressions. ROI projections are based on current market analysis and may vary. Past performance is not indicative of future results.
         </p>
       </div>
