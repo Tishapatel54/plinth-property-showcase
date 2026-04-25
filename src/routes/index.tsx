@@ -161,7 +161,7 @@ function TiltCard({
     >
       {/* subtle moving sheen */}
       <div
-        className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-200 group-hover:opacity-100"
+        className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-active:opacity-100"
         style={{
           background:
             "radial-gradient(600px circle at var(--mx,50%) var(--my,50%), oklch(0.85 0.12 80 / 0.10), transparent 55%)",
@@ -196,7 +196,7 @@ function Nav({ onEnquireClick }: { onEnquireClick?: () => void }) {
 
   return (
     <header className="absolute top-0 inset-x-0 z-30">
-      <div className="mx-auto max-w-[1200px] px-6 lg:px-24 xl:px-25 py-5 flex items-center justify-between">
+      <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-24 xl:px-25 py-4 sm:py-5 flex items-center justify-between gap-2">
 
         {/* Left Side: Mobile Menu Trigger */}
         <div className="flex-1 md:hidden">
@@ -218,10 +218,10 @@ function Nav({ onEnquireClick }: { onEnquireClick?: () => void }) {
         </nav>
 
         {/* Right Side: Enquire Button */}
-        <div className="flex justify-end flex-1">
+        <div className="ml-auto flex justify-end flex-1">
           <PremiumButton
             onClick={onEnquireClick}
-            innerClassName="px-5 py-2.5 md:px-6 md:py-3 text-[10px] md:text-[11px] uppercase tracking-widest whitespace-nowrap"
+            innerClassName="px-4 py-2.5 sm:px-5 md:px-6 md:py-3 text-[9px] sm:text-[10px] md:text-[11px] uppercase tracking-[0.2em] sm:tracking-widest whitespace-nowrap"
           >
             Enquire Now
           </PremiumButton>
@@ -274,7 +274,7 @@ function Hero() {
           <div className="lg:mt-[-80px] inline-flex items-center gap-2 rounded-full border border-[#E3C98B]/30 bg-[#0A0A0A]/60 backdrop-blur px-4 py-2 mb-8">
             <span className="h-1.5 w-1.5 rounded-full bg-[#E3C98B]" />
             <span className="text-[11px] tracking-[0.2em] text-white/70 font-medium">
-              NOW LAUNCHING <span className="mx-1 text-[#E3C98B]/50">Â·</span> <span className="font-semibold text-[12px] text-white tracking-[0.1em]">SINDHU BHAVAN ROAD</span>
+              NOW LAUNCHING <span className="mx-1 text-[#E3C98B]/50">·</span> <span className="font-semibold text-[12px] text-white tracking-[0.1em]">SINDHU BHAVAN ROAD</span>
             </span>
           </div>
 
@@ -593,9 +593,9 @@ function Spaces() {
       imgs: [office, plinthOffice, listing1],
       size: "900",
       unit: "Sq.ft",
-      title: "Starting â‚¹65 Lakhs",
+      title: "Starting ₹65 Lakhs",
       features: [
-        "18 offices per floorÂ· customizable layouts",
+        "18 offices per floor· customizable layouts",
         "11.5 ft ceilings, floor-to-ceiling glass",
         "Dedicated high-speed elevators",
         "Central air-conditioning",
@@ -1121,12 +1121,12 @@ function InvestmentCTA() {
         <div className="text-[12px] tracking-[0.35em] text-[#E3C98B]/90 mb-3">EXPECTED ANNUAL ROI</div>
 
         <div
-          className="font-serif leading-[1.1] text-[4rem] sm:text-[6rem] md:text-[7.5rem] lg:text-[9rem] bg-gradient-to-b from-[#F5E9C8] via-[#E3C98B] to-[#C69A57] bg-clip-text text-transparent"
+          className="font-serif leading-[1.1] text-[2.9rem] sm:text-[6rem] md:text-[7.5rem] lg:text-[9rem] bg-gradient-to-b from-[#F5E9C8] via-[#E3C98B] to-[#C69A57] bg-clip-text text-transparent"
         >
-          15-18<span className="text-[2.3rem] sm:text-[3rem] md:text-[4.5rem] lg:text-[6.5rem]">%</span>
+          15-18<span className="text-[1.8rem] sm:text-[3rem] md:text-[4.5rem] lg:text-[6.5rem]">%</span>
         </div>
 
-        <h3 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-foreground mt-8">
+        <h3 className="font-serif text-xl sm:text-3xl md:text-4xl lg:text-5xl text-foreground mt-7 sm:mt-8">
           A Landmark Address. <span className="italic" style={{ color: "oklch(0.83 0.11 78)" }}>A Landmark Return.</span>
         </h3>
 
@@ -1140,7 +1140,7 @@ function InvestmentCTA() {
         </div>
 
         <div className="mt-10 text-[10px] tracking-[0.30em] text-foreground/60">
-          SINDHU BHAVAN ROAD <span className="text-[#E3C98B]">Ã‚Â·</span> AHMEDABAD <span className="text-[#E3C98B]">Ã‚Â·</span> 380054
+          SINDHU BHAVAN ROAD <span className="text-[#E3C98B]">·</span> AHMEDABAD <span className="text-[#E3C98B]">·</span> 380054
         </div>
       </div>
     </section >
@@ -1198,9 +1198,9 @@ function EnquiryForm() {
     <form
       ref={formRef}
       onSubmit={handleSubmit}
-      className="relative w-full rounded-3xl border border-[oklch(0.65_0.10_70/0.22)] bg-[linear-gradient(180deg,oklch(0.20_0.014_60/0.55),oklch(0.17_0.012_60/0.35))] backdrop-blur p-8 lg:p-10 shadow-[0_50px_160px_-130px_oklch(0.78_0.13_75/0.75)]"
+      className="relative w-full rounded-2xl sm:rounded-3xl border border-[oklch(0.65_0.10_70/0.22)] bg-[linear-gradient(180deg,oklch(0.20_0.014_60/0.55),oklch(0.17_0.012_60/0.35))] backdrop-blur p-5 sm:p-6 lg:p-10 shadow-[0_50px_160px_-130px_oklch(0.78_0.13_75/0.75)]"
     >
-      <div className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-inset ring-[oklch(0.85_0.12_80/0.07)] opacity-70" />
+      <div className="pointer-events-none absolute inset-0 rounded-2xl sm:rounded-3xl ring-1 ring-inset ring-[oklch(0.85_0.12_80/0.07)] opacity-70" />
 
       {status === "success" ? (
         <div className="h-full flex flex-col items-center justify-center text-center py-10">
@@ -1227,11 +1227,11 @@ function EnquiryForm() {
             <Sparkles className="h-4 w-4 text-[#E3C98B]" />
             <span className="text-xs tracking-[0.3em] text-[#E3C98B]">PRIORITY ENQUIRY</span>
           </div>
-          <h3 className="font-serif text-3xl md:text-4xl text-foreground mb-10">
+          <h3 className="font-serif text-2xl sm:text-3xl md:text-4xl text-foreground mb-6 sm:mb-10">
             Schedule a private consultation.
           </h3>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-4 sm:gap-6">
             <div>
               <label className="text-[10px] tracking-[0.3em] text-foreground/70">FULL NAME</label>
               <input
@@ -1239,7 +1239,7 @@ function EnquiryForm() {
                 required
                 type="text"
                 placeholder="Your name"
-                className="mt-3 w-full rounded-xl border border-[oklch(0.65_0.10_70/0.22)] bg-background/20 px-5 py-4 text-foreground placeholder:text-foreground/30 shadow-[inset_0_0_0_1px_oklch(0.85_0.12_80/0.05)] focus:outline-none focus:border-[oklch(0.78_0.13_75/0.55)] transition"
+                className="mt-2.5 sm:mt-3 w-full rounded-xl border border-[oklch(0.65_0.10_70/0.22)] bg-background/20 px-4 sm:px-5 py-3.5 sm:py-4 text-foreground placeholder:text-foreground/30 shadow-[inset_0_0_0_1px_oklch(0.85_0.12_80/0.05)] focus:outline-none focus:border-[oklch(0.78_0.13_75/0.55)] transition"
               />
             </div>
             <div>
@@ -1249,32 +1249,32 @@ function EnquiryForm() {
                 required
                 type="tel"
                 placeholder="+91 ------"
-                className="mt-3 w-full rounded-xl border border-[oklch(0.65_0.10_70/0.22)] bg-background/20 px-5 py-4 text-foreground placeholder:text-foreground/30 shadow-[inset_0_0_0_1px_oklch(0.85_0.12_80/0.05)] focus:outline-none focus:border-[oklch(0.78_0.13_75/0.55)] transition"
+                className="mt-2.5 sm:mt-3 w-full rounded-xl border border-[oklch(0.65_0.10_70/0.22)] bg-background/20 px-4 sm:px-5 py-3.5 sm:py-4 text-foreground placeholder:text-foreground/30 shadow-[inset_0_0_0_1px_oklch(0.85_0.12_80/0.05)] focus:outline-none focus:border-[oklch(0.78_0.13_75/0.55)] transition"
               />
             </div>
             <div>
               <label className="text-[10px] tracking-[0.3em] text-foreground/70">BUDGET RANGE</label>
-              <select name="budget" className="mt-3 w-full rounded-xl border border-[oklch(0.65_0.10_70/0.22)] bg-background/90 px-5 py-4 text-foreground shadow-[inset_0_0_0_1px_oklch(0.85_0.12_80/0.05)] focus:outline-none focus:border-[oklch(0.78_0.13_75/0.55)] transition">
-                <option value="â‚¹65 L - â‚¹1 Cr">â‚¹65 L - â‚¹1 Cr</option>
-                <option value="â‚¹1 Cr - â‚¹2 Cr">â‚¹1 Cr - â‚¹2 Cr</option>
-                <option value="â‚¹2 Cr +">â‚¹2 Cr +</option>
+              <select name="budget" className="mt-2.5 sm:mt-3 w-full rounded-xl border border-[oklch(0.65_0.10_70/0.22)] bg-background/90 px-4 sm:px-5 py-3.5 sm:py-4 text-foreground shadow-[inset_0_0_0_1px_oklch(0.85_0.12_80/0.05)] focus:outline-none focus:border-[oklch(0.78_0.13_75/0.55)] transition">
+                <option value="₹65 L - ₹1 Cr">₹65 L - ₹1 Cr</option>
+                <option value="₹1 Cr - ₹2 Cr">₹1 Cr - ₹2 Cr</option>
+                <option value="₹2 Cr +">₹2 Cr +</option>
               </select>
             </div>
             <div>
               <label className="text-[10px] tracking-[0.3em] text-foreground/70">PURPOSE</label>
               <input type="hidden" name="purpose" value={purpose} />
-              <div className="mt-3 grid grid-cols-2 gap-3">
+              <div className="mt-2.5 sm:mt-3 grid grid-cols-2 gap-2.5 sm:gap-3">
                 <button
                   type="button"
                   onClick={() => setPurpose("Investor")}
-                  className={`rounded-xl py-4 font-medium transition ${purpose === "Investor" ? "border border-[oklch(0.78_0.13_75/0.55)] bg-[oklch(0.78_0.13_75/0.08)] text-foreground shadow-[inset_0_0_0_1px_oklch(0.85_0.12_80/0.06)]" : "border border-[oklch(0.65_0.10_70/0.22)] bg-background/20 text-foreground/80 hover:border-[oklch(0.78_0.13_75/0.45)]"}`}
+                  className={`rounded-xl py-3.5 sm:py-4 font-medium transition ${purpose === "Investor" ? "border border-[oklch(0.78_0.13_75/0.55)] bg-[oklch(0.78_0.13_75/0.08)] text-foreground shadow-[inset_0_0_0_1px_oklch(0.85_0.12_80/0.06)]" : "border border-[oklch(0.65_0.10_70/0.22)] bg-background/20 text-foreground/80 hover:border-[oklch(0.78_0.13_75/0.45)]"}`}
                 >
                   Investor
                 </button>
                 <button
                   type="button"
                   onClick={() => setPurpose("End User")}
-                  className={`rounded-xl py-4 font-medium transition ${purpose === "End User" ? "border border-[oklch(0.78_0.13_75/0.55)] bg-[oklch(0.78_0.13_75/0.08)] text-foreground shadow-[inset_0_0_0_1px_oklch(0.85_0.12_80/0.06)]" : "border border-[oklch(0.65_0.10_70/0.22)] bg-background/20 text-foreground/80 hover:border-[oklch(0.78_0.13_75/0.45)]"}`}
+                  className={`rounded-xl py-3.5 sm:py-4 font-medium transition ${purpose === "End User" ? "border border-[oklch(0.78_0.13_75/0.55)] bg-[oklch(0.78_0.13_75/0.08)] text-foreground shadow-[inset_0_0_0_1px_oklch(0.85_0.12_80/0.06)]" : "border border-[oklch(0.65_0.10_70/0.22)] bg-background/20 text-foreground/80 hover:border-[oklch(0.78_0.13_75/0.45)]"}`}
                 >
                   End User
                 </button>
@@ -1282,7 +1282,7 @@ function EnquiryForm() {
             </div>
           </div>
 
-          <div className="mt-10 pt-8 border-t border-[#E3C98B]/20">
+          <div className="mt-8 sm:mt-10 pt-6 sm:pt-8 border-t border-[#E3C98B]/20">
             <p className="text-xs text-foreground/60 mb-6">
               By submitting, you agree to receive project details via phone, WhatsApp &amp; email.
             </p>
@@ -1313,35 +1313,35 @@ function EnquireNow() {
       <div className="mx-auto max-w-[1120px] px-4 lg:px-6 xl:px-8">
         <SectionLabel n="09" t="ENQUIRE NOW" />
 
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-14">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-14">
           {/* LEFT */}
           <div>
-            <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-6xl leading-[1.05] text-foreground">
+            <h2 className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-6xl leading-[1.05] text-foreground">
               Get <span className="italic" style={{ color: "oklch(0.83 0.11 78)" }}>Complete</span>
               <br />
               Investment Details.
             </h2>
-            <p className="mt-5 text-foreground/70 leading-relaxed text-lg max-w-xl">
+            <p className="mt-4 sm:mt-5 text-foreground/70 leading-relaxed text-base sm:text-lg max-w-xl">
               Priority access to pricing, RERA documentation, floor plans,
               rental projections &amp; exclusive pre-launch offers.
             </p>
 
-            <div className="mt-8 rounded-[22px] border border-[oklch(0.65_0.10_70/0.22)] hover:border-[#C69A57] transition-colors duration-300 bg-[linear-gradient(180deg,oklch(0.20_0.014_60/0.55),oklch(0.17_0.012_60/0.35))] backdrop-blur p-5 flex items-start gap-4">
+            <div className="mt-7 sm:mt-8 rounded-[22px] border border-[oklch(0.65_0.10_70/0.22)] hover:border-[#C69A57] transition-colors duration-300 bg-[linear-gradient(180deg,oklch(0.20_0.014_60/0.55),oklch(0.17_0.012_60/0.35))] backdrop-blur p-4 sm:p-5 flex items-start gap-3 sm:gap-4">
               <div className="h-10 w-12 rounded-full bg-[linear-gradient(135deg,oklch(0.85_0.12_80),oklch(0.65_0.13_65))] flex items-center justify-center shrink-0 shadow-[0_22px_60px_-40px_oklch(0.78_0.13_75/0.80)]">
                 <AlertCircle className="h-5 w-5 text-[oklch(0.16_0.012_60)]" />
               </div>
               <div>
-                <h3 className="font-serif text-2xl text-foreground">Limited Premium Units Available</h3>
+                <h3 className="font-serif text-xl sm:text-2xl text-foreground">Limited Premium Units Available</h3>
                 <p className="text-sm text-foreground/65 mt-2">
                   Only a handful of high-floor units remain in this phase.
                 </p>
               </div>
             </div>
 
-            <div className="mt-3 rounded-[22px] border border-[oklch(0.65_0.10_70/0.22)] hover:border-[#C69A57] transition-colors duration-300 bg-[linear-gradient(180deg,oklch(0.20_0.014_60/0.55),oklch(0.17_0.012_60/0.35))] backdrop-blur p-6">
+            <div className="mt-3 rounded-[22px] border border-[oklch(0.65_0.10_70/0.22)] hover:border-[#C69A57] transition-colors duration-300 bg-[linear-gradient(180deg,oklch(0.20_0.014_60/0.55),oklch(0.17_0.012_60/0.35))] backdrop-blur p-4 sm:p-6">
               <div className="text-[10px] tracking-[0.3em] text-[#E3C98B] mb-2">WHY INVEST NOW</div>
               <div
-                className="font-serif leading-[1.1] text-6xl sm:text-7xl md:text-[6rem] lg:text-[6rem] bg-gradient-to-b from-[#F5E9C8] via-[#E3C98B] to-[#C69A57] bg-clip-text text-transparent"
+                className="font-serif leading-[1.1] text-5xl sm:text-7xl md:text-[6rem] lg:text-[6rem] bg-gradient-to-b from-[#F5E9C8] via-[#E3C98B] to-[#C69A57] bg-clip-text text-transparent"
               >
                 15-18<span className="text-5xl sm:text-6xl md:text-[4rem] lg:text-[4rem]">%</span>
               </div>
@@ -1443,10 +1443,10 @@ function SiteFooter() {
         </div>
 
         <div className="mt-16 pt-8 border-t border-[oklch(0.65_0.10_70/0.16)] flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-xs text-foreground/45">
-          <span>Ã‚Â© {new Date().getFullYear()} Sindhu Bhavan. All rights reserved.<br />Made with by <a href="https://13utopia.com">13UTOPiA</a></span>
+          <span>© {new Date().getFullYear()} Sindhu Bhavan. All rights reserved.<br />Made with by <a href="https://13utopia.com">13UTOPiA</a></span>
 
           <span className="flex items-center gap-1.5">
-            Ã‚Â© {new Date().getFullYear()} Made with
+            © {new Date().getFullYear()} Made with
             <Heart className="h-3.5 w-3.5 text-red-500 fill-red-500 animate-pulse" />
             by <a href="https://13utopia.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#C69A57] transition-colors">13UTOPiA</a>
           </span>
