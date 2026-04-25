@@ -313,7 +313,7 @@ function Hero() {
               { icon: Building2, label: "OFFICE FROM", v: "900 Sq.ft" },
               { icon: Store, label: "SHOWROOM FROM", v: "2700 Sq.ft" },
             ].map(({ icon: Icon, label, v }) => (
-              <div key={label} className="flex flex-col items-center text-center sm:items-start sm:text-left rounded-2xl border border-[#E3C98B]/20 bg-[#0A0A0A]/50 backdrop-blur p-3.5 hover:border-[#E3C98B]/40 transition duration-300 group">
+              <div key={label} className="flex flex-col items-center text-center sm:items-start sm:text-left rounded-2xl border border-[#E3C98B]/20 bg-[#0A0A0A]/50 backdrop-blur p-4 sm:p-3.5 hover:border-[#E3C98B]/40 transition duration-300 group">
                 <Icon className="h-4 w-4 text-[#C69A57] mb-4 transition-transform group-hover:scale-110" strokeWidth={1.5} />
                 <div className="text-[8px] tracking-[0.25em] text-white/40 mb-1.5 uppercase">{label}</div>
                 <div className="text-white/90 text-[12px] font-medium">{v}</div>
@@ -559,15 +559,21 @@ function Highlights() {
           {items.map(({ icon: Icon, t, d }, i) => (
             <TiltCard
               key={t}
-              className="group relative rounded-2xl border border-[#E3C98B]/20 bg-gradient-to-br from-card/70 to-card/35 backdrop-blur p-4 min-h-[140px] flex flex-col items-center text-center md:items-start md:text-left hover:border-[var(--gold)]/20 hover:shadow-[0_36px_110px_-78px_oklch(0.78_0.13_75/0.75)]"
+              className="group relative rounded-2xl border border-[#E3C98B]/20 bg-gradient-to-br from-card/70 to-card/35 backdrop-blur p-5 sm:p-4 min-h-[160px] sm:min-h-[140px] flex flex-col items-center text-center sm:items-start sm:text-left hover:border-[var(--gold)]/20 hover:shadow-[0_36px_110px_-78px_oklch(0.78_0.13_75/0.75)]"
             >
               {/* inner edge glow */}
               <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-[oklch(0.85_0.12_80/0.08)] opacity-60 group-hover:opacity-60 transition-opacity" />
 
-              <div className="relative flex flex-col items-center md:items-start mb-4">
+              <div className="relative flex items-center justify-center sm:items-start sm:justify-between w-full mb-4">
                 <div className="relative h-12 w-12 rounded-2xl bg-[linear-gradient(135deg,oklch(0.86_0.12_80),oklch(0.65_0.13_65))] flex items-center justify-center shadow-[0_22px_60px_-40px_oklch(0.78_0.13_75/0.85)]">
                   <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-[oklch(0.20_0.014_60/0.18)]" />
                   <Icon className="h-5 w-5 text-[oklch(0.16_0.012_60)]" />
+                </div>
+                <div className="relative hidden sm:block">
+                  <div className="pointer-events-none absolute -inset-3 rounded-xl bg-[radial-gradient(ellipse_at_center,oklch(0.86_0.12_80/0.22),transparent_65%)] opacity-70" />
+                  <span className="relative text-xs tracking-widest text-[oklch(0.83_0.11_78/0.55)]">
+                    0{i + 1}
+                  </span>
                 </div>
               </div>
               <h3 className="relative font-serif text-[19px] text-foreground mb-1.5 mt-1">{t}</h3>
@@ -814,7 +820,7 @@ function WhyInvest() {
               >
                 <TiltCard
                   className={[
-                    "h-full group relative w-full rounded-[16px] p-5 min-h-[250px] flex flex-col items-center text-center lg:items-start lg:text-left transition-colors cursor-pointer",
+                    "h-full group relative w-full rounded-[16px] p-5 min-h-[250px] flex flex-col transition-colors cursor-pointer",
                     isActive
                       ? "bg-gradient-to-b from-[#D4A865] via-[#C69A57] to-[#9B7335] text-black shadow-[0_55px_170px_-140px_oklch(0.78_0.13_75/0.80)]"
                       : "border border-[oklch(0.65_0.10_70/0.22)] bg-[linear-gradient(180deg,oklch(0.20_0.014_60/0.55),oklch(0.17_0.012_60/0.35))] backdrop-blur text-foreground hover:border-[oklch(0.78_0.13_75/0.45)]",
@@ -887,11 +893,11 @@ function Amenities() {
           {items.map(({ icon: Icon, t, d }) => (
             <TiltCard
               key={t}
-              className="group relative rounded-[16px] border border-[oklch(0.65_0.10_70/0.22)] bg-[linear-gradient(180deg,oklch(0.20_0.014_60/0.55),oklch(0.17_0.012_60/0.35))] backdrop-blur p-4 min-h-[140px] flex flex-col items-center text-center lg:flex-row lg:items-center lg:text-left gap-2.5 hover:border-[oklch(0.78_0.13_75/0.45)] hover:shadow-[0_32px_110px_-78px_oklch(0.78_0.13_75/0.75)]"
+              className="group relative rounded-[16px] border border-[oklch(0.65_0.10_70/0.22)] bg-[linear-gradient(180deg,oklch(0.20_0.014_60/0.55),oklch(0.17_0.012_60/0.35))] backdrop-blur p-5 sm:p-4 min-h-[140px] flex flex-col items-center text-center sm:flex-row sm:items-center sm:text-left gap-4 sm:gap-2.5 hover:border-[oklch(0.78_0.13_75/0.45)] hover:shadow-[0_32px_110px_-78px_oklch(0.78_0.13_75/0.75)]"
             >
               <div className="pointer-events-none absolute inset-0 rounded-[20px] ring-1 ring-inset ring-[oklch(0.85_0.12_80/0.07)] opacity-60 group-hover:opacity-100 transition-opacity" />
 
-              <div className="relative h-12 w-12 rounded-[14px] bg-[linear-gradient(135deg,oklch(0.85_0.12_80),oklch(0.65_0.13_65))] flex items-center justify-center shrink-0 shadow-[0_22px_60px_-36px_oklch(0.78_0.13_75/0.85)] mb-3 lg:mb-0">
+              <div className="relative h-12 w-12 rounded-[14px] bg-[linear-gradient(135deg,oklch(0.85_0.12_80),oklch(0.65_0.13_65))] flex items-center justify-center shrink-0 shadow-[0_22px_60px_-36px_oklch(0.78_0.13_75/0.85)]">
                 <div className="pointer-events-none absolute inset-0 rounded-[14px] ring-1 ring-inset ring-[oklch(0.20_0.014_60/0.18)]" />
                 <Icon className="h-4 w-4 text-[oklch(0.16_0.012_60)]" />
               </div>
