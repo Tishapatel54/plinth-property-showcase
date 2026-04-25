@@ -313,10 +313,12 @@ function Hero() {
               { icon: Building2, label: "OFFICE FROM", v: "900 Sq.ft" },
               { icon: Store, label: "SHOWROOM FROM", v: "2700 Sq.ft" },
             ].map(({ icon: Icon, label, v }) => (
-              <div key={label} className="flex flex-col items-center text-center sm:items-start sm:text-left rounded-2xl border border-[#E3C98B]/20 bg-[#0A0A0A]/50 backdrop-blur p-4 sm:p-3.5 hover:border-[#E3C98B]/40 transition duration-300 group">
-                <Icon className="h-4 w-4 text-[#C69A57] mb-4 transition-transform group-hover:scale-110" strokeWidth={1.5} />
-                <div className="text-[8px] tracking-[0.25em] text-white/40 mb-1.5 uppercase">{label}</div>
-                <div className="text-white/90 text-[12px] font-medium">{v}</div>
+              <div key={label} className="flex flex-col items-center text-center sm:items-start sm:text-left rounded-2xl border border-[#E3C98B]/20 bg-[#0A0A0A]/50 backdrop-blur p-5 sm:p-3.5 hover:border-[#E3C98B]/40 transition duration-300 group">
+                <Icon className="h-5 w-5 text-[#C69A57] mb-4 transition-transform group-hover:scale-110" strokeWidth={1.5} />
+                <div className="w-full">
+                  <div className="text-[8px] tracking-[0.25em] text-white/40 mb-1.5 uppercase">{label}</div>
+                  <div className="text-white/90 text-[12px] font-medium">{v}</div>
+                </div>
               </div>
             ))}
           </div>
@@ -490,7 +492,7 @@ function ROISection() {
             ].map(({ icon: Icon, v, t, d }) => (
               <div
                 key={t}
-                className="group relative rounded-[20px] border border-[oklch(0.65_0.10_70/0.22)] bg-[linear-gradient(180deg,oklch(0.20_0.014_60/0.55),oklch(0.17_0.012_60/0.35))] backdrop-blur p-5 min-h-[200px] flex flex-col items-center text-center sm:items-start sm:text-left justify-center transition-all duration-300 
+                className="group relative rounded-[20px] border border-[oklch(0.65_0.10_70/0.22)] bg-[linear-gradient(180deg,oklch(0.20_0.014_60/0.55),oklch(0.17_0.012_60/0.35))] backdrop-blur p-5 min-h-[220px] sm:min-h-[200px] flex flex-col items-center text-center sm:items-start sm:text-left justify-center transition-all duration-300 
       transform-gpu hover:scale-[1.02] active:scale-[0.98]
       hover:border-[oklch(0.78_0.13_75/0.45)] 
       active:border-[oklch(0.78_0.13_75/0.45)] 
@@ -501,21 +503,21 @@ function ROISection() {
                 <div className="pointer-events-none absolute inset-0 rounded-[20px] ring-1 ring-inset ring-[oklch(0.85_0.12_80/0.06)] opacity-55 group-hover:opacity-100 group-active:opacity-100 transition-opacity" />
 
                 {/* Icon Container */}
-                <div className="relative h-8.5 w-8.5 rounded-full bg-[linear-gradient(135deg,oklch(0.86_0.12_80),oklch(0.65_0.13_65))] flex items-center justify-center mb-3 shadow-[0_22px_60px_-40px_oklch(0.78_0.13_75/0.80)]">
+                <div className="relative h-9 w-9 rounded-full bg-[linear-gradient(135deg,oklch(0.86_0.12_80),oklch(0.65_0.13_65))] flex items-center justify-center mb-4 sm:mb-3 shadow-[0_22px_60px_-40px_oklch(0.78_0.13_75/0.80)] mx-auto sm:mx-0">
                   <div className="pointer-events-none absolute inset-0 rounded-full ring-1 ring-inset ring-[oklch(0.20_0.014_60/0.18)]" />
-                  <Icon className="h-3.5 w-3.5 text-[oklch(0.16_0.012_60)]" />
+                  <Icon className="h-4 w-4 text-[oklch(0.16_0.012_60)]" />
                 </div>
 
                 {/* Stat Value with Gold Gradient */}
-                <div className="relative font-serif text-[20px] leading-none mb-1.5 bg-gradient-to-b from-[#F5E9C8] via-[#E3C98B] to-[#C69A57] bg-clip-text text-transparent">
+                <div className="relative font-serif text-[22px] sm:text-[20px] leading-none mb-2 sm:mb-1.5 bg-gradient-to-b from-[#F5E9C8] via-[#E3C98B] to-[#C69A57] bg-clip-text text-transparent">
                   {v}
                 </div>
 
                 {/* Title */}
-                <div className="relative text-[12px] text-foreground/90 font-medium leading-snug">{t}</div>
+                <div className="relative text-[13px] sm:text-[12px] text-foreground/90 font-medium leading-snug">{t}</div>
 
                 {/* Description */}
-                <p className="relative text-[10px] text-foreground/55 mt-0.5 leading-snug">{d}</p>
+                <p className="relative text-[11px] sm:text-[10px] text-foreground/55 mt-1 sm:mt-0.5 leading-snug max-w-[160px] sm:max-w-none">{d}</p>
               </div>
 
             ))}
@@ -559,15 +561,15 @@ function Highlights() {
           {items.map(({ icon: Icon, t, d }, i) => (
             <TiltCard
               key={t}
-              className="group relative rounded-2xl border border-[#E3C98B]/20 bg-gradient-to-br from-card/70 to-card/35 backdrop-blur p-5 sm:p-4 min-h-[160px] sm:min-h-[140px] flex flex-col items-center text-center sm:items-start sm:text-left hover:border-[var(--gold)]/20 hover:shadow-[0_36px_110px_-78px_oklch(0.78_0.13_75/0.75)]"
+              className="group relative rounded-2xl border border-[#E3C98B]/20 bg-gradient-to-br from-card/70 to-card/35 backdrop-blur p-6 sm:p-4 min-h-[180px] sm:min-h-[140px] flex flex-col items-center text-center sm:items-start sm:text-left hover:border-[var(--gold)]/20 hover:shadow-[0_36px_110px_-78px_oklch(0.78_0.13_75/0.75)]"
             >
               {/* inner edge glow */}
               <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-[oklch(0.85_0.12_80/0.08)] opacity-60 group-hover:opacity-60 transition-opacity" />
 
-              <div className="relative flex items-center justify-center sm:items-start sm:justify-between w-full mb-4">
-                <div className="relative h-12 w-12 rounded-2xl bg-[linear-gradient(135deg,oklch(0.86_0.12_80),oklch(0.65_0.13_65))] flex items-center justify-center shadow-[0_22px_60px_-40px_oklch(0.78_0.13_75/0.85)]">
+              <div className="relative flex flex-col items-center sm:items-start sm:flex-row sm:justify-between w-full mb-5 sm:mb-4">
+                <div className="relative h-14 w-14 sm:h-12 sm:w-12 rounded-2xl bg-[linear-gradient(135deg,oklch(0.86_0.12_80),oklch(0.65_0.13_65))] flex items-center justify-center shadow-[0_22px_60px_-40px_oklch(0.78_0.13_75/0.85)] mx-auto sm:mx-0">
                   <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-[oklch(0.20_0.014_60/0.18)]" />
-                  <Icon className="h-5 w-5 text-[oklch(0.16_0.012_60)]" />
+                  <Icon className="h-6 w-6 sm:h-5 sm:w-5 text-[oklch(0.16_0.012_60)]" />
                 </div>
                 <div className="relative hidden sm:block">
                   <div className="pointer-events-none absolute -inset-3 rounded-xl bg-[radial-gradient(ellipse_at_center,oklch(0.86_0.12_80/0.22),transparent_65%)] opacity-70" />
@@ -576,8 +578,8 @@ function Highlights() {
                   </span>
                 </div>
               </div>
-              <h3 className="relative font-serif text-[19px] text-foreground mb-1.5 mt-1">{t}</h3>
-              <p className="relative text-sm text-foreground/65 leading-relaxed">{d}</p>
+              <h3 className="relative font-serif text-[21px] sm:text-[19px] text-foreground mb-2 sm:mb-1.5 mt-1">{t}</h3>
+              <p className="relative text-[13px] sm:text-sm text-foreground/65 leading-relaxed max-w-[240px] sm:max-w-none">{d}</p>
             </TiltCard>
           ))}
         </div>
@@ -893,17 +895,17 @@ function Amenities() {
           {items.map(({ icon: Icon, t, d }) => (
             <TiltCard
               key={t}
-              className="group relative rounded-[16px] border border-[oklch(0.65_0.10_70/0.22)] bg-[linear-gradient(180deg,oklch(0.20_0.014_60/0.55),oklch(0.17_0.012_60/0.35))] backdrop-blur p-5 sm:p-4 min-h-[140px] flex flex-col items-center text-center sm:flex-row sm:items-center sm:text-left gap-4 sm:gap-2.5 hover:border-[oklch(0.78_0.13_75/0.45)] hover:shadow-[0_32px_110px_-78px_oklch(0.78_0.13_75/0.75)]"
+              className="group relative rounded-[16px] border border-[oklch(0.65_0.10_70/0.22)] bg-[linear-gradient(180deg,oklch(0.20_0.014_60/0.55),oklch(0.17_0.012_60/0.35))] backdrop-blur p-6 sm:p-4 min-h-[150px] flex flex-col items-center text-center sm:flex-row sm:items-center sm:text-left gap-5 sm:gap-2.5 hover:border-[oklch(0.78_0.13_75/0.45)] hover:shadow-[0_32px_110px_-78px_oklch(0.78_0.13_75/0.75)]"
             >
               <div className="pointer-events-none absolute inset-0 rounded-[20px] ring-1 ring-inset ring-[oklch(0.85_0.12_80/0.07)] opacity-60 group-hover:opacity-100 transition-opacity" />
 
-              <div className="relative h-12 w-12 rounded-[14px] bg-[linear-gradient(135deg,oklch(0.85_0.12_80),oklch(0.65_0.13_65))] flex items-center justify-center shrink-0 shadow-[0_22px_60px_-36px_oklch(0.78_0.13_75/0.85)]">
+              <div className="relative h-14 w-14 sm:h-12 sm:w-12 rounded-[14px] bg-[linear-gradient(135deg,oklch(0.85_0.12_80),oklch(0.65_0.13_65))] flex items-center justify-center shrink-0 shadow-[0_22px_60px_-36px_oklch(0.78_0.13_75/0.85)] mx-auto sm:mx-0">
                 <div className="pointer-events-none absolute inset-0 rounded-[14px] ring-1 ring-inset ring-[oklch(0.20_0.014_60/0.18)]" />
-                <Icon className="h-4 w-4 text-[oklch(0.16_0.012_60)]" />
+                <Icon className="h-5 w-5 sm:h-4 sm:w-4 text-[oklch(0.16_0.012_60)]" />
               </div>
-              <div className="relative">
-                <h3 className="font-serif text-[17px] text-foreground leading-snug">{t}</h3>
-                <p className="text-[11.5px] leading-snug text-foreground/55 mt-0.5">{d}</p>
+              <div className="relative flex flex-col items-center sm:items-start">
+                <h3 className="font-serif text-[19px] sm:text-[17px] text-foreground leading-snug">{t}</h3>
+                <p className="text-[12.5px] sm:text-[11.5px] leading-snug text-foreground/55 mt-1 sm:mt-0.5">{d}</p>
               </div>
             </TiltCard>
           ))}
