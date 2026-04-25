@@ -56,9 +56,9 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Plinth - Premium Commercial Space, Sindhu Bhavan Road" },
-      { name: "description", content: "Plinth on Sindhu Bhavan Road, Ahmedabad. G+38 storey landmark commercial tower with 15â€“18% expected annual ROI. Office and showroom spaces from 900 to 2700 sq.ft." },
+      { name: "description", content: "Plinth on Sindhu Bhavan Road, Ahmedabad. G+38 storey landmark commercial tower with 15Ã¢â‚¬â€œ18% expected annual ROI. Office and showroom spaces from 900 to 2700 sq.ft." },
       { property: "og:title", content: "Plinth - Premium Commercial Space" },
-      { property: "og:description", content: "G+38 landmark commercial tower on Sindhu Bhavan Road, Ahmedabad. 15â€“18% expected ROI." },
+      { property: "og:description", content: "G+38 landmark commercial tower on Sindhu Bhavan Road, Ahmedabad. 15Ã¢â‚¬â€œ18% expected ROI." },
     ],
   }),
 });
@@ -274,7 +274,7 @@ function Hero() {
           <div className="lg:mt-[-80px] inline-flex items-center gap-2 rounded-full border border-[#E3C98B]/30 bg-[#0A0A0A]/60 backdrop-blur px-4 py-2 mb-8">
             <span className="h-1.5 w-1.5 rounded-full bg-[#E3C98B]" />
             <span className="text-[11px] tracking-[0.2em] text-white/70 font-medium">
-              NOW LAUNCHING <span className="mx-1 text-[#E3C98B]/50">·</span> <span className="font-semibold text-[12px] text-white tracking-[0.1em]">SINDHU BHAVAN ROAD</span>
+              NOW LAUNCHING <span className="mx-1 text-[#E3C98B]/50">Â·</span> <span className="font-semibold text-[12px] text-white tracking-[0.1em]">SINDHU BHAVAN ROAD</span>
             </span>
           </div>
 
@@ -309,7 +309,7 @@ function Hero() {
           {/* 3 Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 lg:max-w-[480px]">
             {[
-              { icon: TrendingUp, label: "STARTING", v: "â‚¹65 Lakhs" },
+              { icon: TrendingUp, label: "STARTING", v: "Ã¢â€šÂ¹65 Lakhs" },
               { icon: Building2, label: "OFFICE FROM", v: "900 Sq.ft" },
               { icon: Store, label: "SHOWROOM FROM", v: "2700 Sq.ft" },
             ].map(({ icon: Icon, label, v }) => (
@@ -593,9 +593,9 @@ function Spaces() {
       imgs: [office, plinthOffice, listing1],
       size: "900",
       unit: "Sq.ft",
-      title: "Starting ₹65 Lakhs",
+      title: "Starting â‚¹65 Lakhs",
       features: [
-        "18 offices per floor· customizable layouts",
+        "18 offices per floorÂ· customizable layouts",
         "11.5 ft ceilings, floor-to-ceiling glass",
         "Dedicated high-speed elevators",
         "Central air-conditioning",
@@ -1140,7 +1140,7 @@ function InvestmentCTA() {
         </div>
 
         <div className="mt-10 text-[10px] tracking-[0.30em] text-foreground/60">
-          SINDHU BHAVAN ROAD <span className="text-[#E3C98B]">Â·</span> AHMEDABAD <span className="text-[#E3C98B]">Â·</span> 380054
+          SINDHU BHAVAN ROAD <span className="text-[#E3C98B]">Ã‚Â·</span> AHMEDABAD <span className="text-[#E3C98B]">Ã‚Â·</span> 380054
         </div>
       </div>
     </section >
@@ -1255,9 +1255,9 @@ function EnquiryForm() {
             <div>
               <label className="text-[10px] tracking-[0.3em] text-foreground/70">BUDGET RANGE</label>
               <select name="budget" className="mt-3 w-full rounded-xl border border-[oklch(0.65_0.10_70/0.22)] bg-background/90 px-5 py-4 text-foreground shadow-[inset_0_0_0_1px_oklch(0.85_0.12_80/0.05)] focus:outline-none focus:border-[oklch(0.78_0.13_75/0.55)] transition">
-                <option value="₹65 L - ₹1 Cr">₹65 L - ₹1 Cr</option>
-                <option value="₹1 Cr - ₹2 Cr">₹1 Cr - ₹2 Cr</option>
-                <option value="₹2 Cr +">₹2 Cr +</option>
+                <option value="â‚¹65 L - â‚¹1 Cr">â‚¹65 L - â‚¹1 Cr</option>
+                <option value="â‚¹1 Cr - â‚¹2 Cr">â‚¹1 Cr - â‚¹2 Cr</option>
+                <option value="â‚¹2 Cr +">â‚¹2 Cr +</option>
               </select>
             </div>
             <div>
@@ -1443,10 +1443,10 @@ function SiteFooter() {
         </div>
 
         <div className="mt-16 pt-8 border-t border-[oklch(0.65_0.10_70/0.16)] flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-xs text-foreground/45">
-          <span>Â© {new Date().getFullYear()} Sindhu Bhavan. All rights reserved.<br />Made with by <a href="https://13utopia.com">13UTOPiA</a></span>
+          <span>Ã‚Â© {new Date().getFullYear()} Sindhu Bhavan. All rights reserved.<br />Made with by <a href="https://13utopia.com">13UTOPiA</a></span>
 
           <span className="flex items-center gap-1.5">
-            Â© {new Date().getFullYear()} Made with
+            Ã‚Â© {new Date().getFullYear()} Made with
             <Heart className="h-3.5 w-3.5 text-red-500 fill-red-500 animate-pulse" />
             by <a href="https://13utopia.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#C69A57] transition-colors">13UTOPiA</a>
           </span>
