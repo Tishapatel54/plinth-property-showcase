@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useId, useMemo, useRef, useState, useEffect } from "react";
 import { Heart } from "lucide-react";
+import { motion } from "framer-motion";
 import {
   ArrowRight,
   TrendingUp,
